@@ -80,14 +80,6 @@ for i in range (0,83,1):
     ReBy_DEMFC30 = Raster(BL_Map)*Raster(ConDEM)*Raster(FC30_roi)
     ReBy_DEMFC30.save("ReBy_DEMFC30_"+scientific_name+".tif")
     
-    #The double refined new species distribution area covered by Protected Area
-    DEMFC30_PA = Raster(ReBy_DEMFC30)*Raster(PA_roi)
-    DEMFC30_PA.save("DEMFC30_PA_"+scientific_name+".tif")
-    
-    #The double refined new species distribution area in Country boundary buffer 50km
-    DEMFC30_B50= Raster(ReBy_DEMFC30)*Raster(B50_roi)
-    DEMFC30_B50.save("DEMFC30_B50_"+scientific_name+".tif")
-    
     row = rows.next()
 del rows     
 
