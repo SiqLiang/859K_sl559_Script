@@ -58,6 +58,10 @@ for i in range (0,83,1):
     ConDEM= "ConDEM_"+scientific_name+".tif"
     arcpy.gp.Reclassify_sa(ConRaw, reclassField, remap, ConDEM)
     
+    #BL_Map Refined by species elevation range
+    ReBy_DEM = Raster(BL_Map)*Raster(ConDEM)
+    outRas.save("ReBy_DEM_"+scientific_name+".tif")
+    
     
     row = rows.next()
 del rows
