@@ -1,4 +1,5 @@
 import arcpy
+from arcpy.sa import *
 
 arcpy.env.overwriteOutput = True
 arcpy.env.outputCoordinateSystem = arcpy.SpatialReference("WGS 1984")
@@ -8,7 +9,6 @@ arcpy.env.workspace = "C:\\859K_sl559\\Scratch"
 arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
 
 inputShapefile = "C:\\859K_sl559\\Data\\EndemicBirdSpecies_inROI_final.shp"
-FC_raster= "C:\\859K_sl559\\Data\\H_TC2000_ReC.tif"
 
 # Create a cursor (this is like opening a file)
 rows = arcpy.da.SearchCursor(inputShapefile,['FID', "Scientific", "Min", "Max"]) 
@@ -41,6 +41,6 @@ for i in range (0,83,1):
     remap = "0 0; 1 100000000000 1; NODATA 0"
     Reclass_out= "ReClassRaster_"+scientific_name+".tif"
     arcpy.gp.Reclassify_sa(RawRaster_out, reclassField, remap, Reclass_out)
-
+    
     row = rows.next()
 del rows
