@@ -1,8 +1,8 @@
 import arcpy
 from arcpy.sa import *
 
+# allow overwrite
 arcpy.env.overwriteOutput = True
-arcpy.env.outputCoordinateSystem = arcpy.SpatialReference("WGS 1984")
 
 # Set the analysis environments
 arcpy.env.workspace = "C:\\859K_sl559\\Scratch1"
@@ -12,8 +12,11 @@ arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
 inputShapefile = "C:\\859K_sl559\\Data\\EndemicBirdSpecies_inROI_final.shp"
 DEM_roi = "C:\\859K_sl559\\Data\\Area_mask_DEM90m_final.tif"
 
-#setting GCS and PCS
-arcpy.env.outputCoordinateSystem = arcpy.SpatialReference(inputShapefile)
+#setting coordinate system
+arcpy.env.outputCoordinateSystem = arcpy.SpatialReference("WGS 1984")
+#Try later: 54012 is the WKID of World Eckert IV
+#Try later: outputSR = arcpy.SpatialReference(54002)
+#Try later: arcpy.CreateFeatureclass_management(outPath,outName,"POINT","","","",outputSR)
 
 # Create a cursor (this is like opening a file)
 rows = arcpy.da.SearchCursor(inputShapefile,['FID', "Scientific", "Min", "Max"]) 
