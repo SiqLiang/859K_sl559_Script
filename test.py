@@ -31,17 +31,17 @@ for i in range (0,83,1):
     
     #Execute BL_Map Feature to Raster
     arcpy.AddMessage("Producing {} raw raster".format(row[1]))
-    RawRaster_out = "RawRaster_"+scientific_name+".tif"
+    BLraw = "BLraw_"+scientific_name+".tif"
     cellSize = 0.0008333
     field = "83LandBird"
-    arcpy.FeatureToRaster_conversion(poly_out, field, RawRaster_out, cellSize)
+    arcpy.FeatureToRaster_conversion(poly_out, field, BLraw, cellSize)
     
     #Execute Reclassify BL_Map
     arcpy.AddMessage("Reclassifying {} raw raster".format(row[1]))
     reclassField = "Value"
     remap = "0 0; 1 100000000000 1; NODATA 0"
-    Reclass_out= "BL_Map_"+scientific_name+".tif"
-    arcpy.gp.Reclassify_sa(RawRaster_out, reclassField, remap, Reclass_out)
+    BL_Map= "BL_Map_"+scientific_name+".tif"
+    arcpy.gp.Reclassify_sa(BLraw, reclassField, remap, BL_Map)
    
     #Execute Con to DEM, get ConRaw
     Input_true_raster_or_constant_value = "1"
