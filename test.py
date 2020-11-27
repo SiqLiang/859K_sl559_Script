@@ -22,7 +22,7 @@ for i in range (0,83,1):
     Max_elevation=row[3]
     print(row)
     print(Min_elevation)
-    print(Max_elevation)
+    print(Max_elevation) 
     
     #multishapefile to single shapfiles
     arcpy.AddMessage("Producing {} indivial shapfile".format(row[1]))
