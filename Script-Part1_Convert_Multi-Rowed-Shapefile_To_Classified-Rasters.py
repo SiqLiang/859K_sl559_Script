@@ -1,5 +1,4 @@
 import arcpy
-from arcpy.sa import *
 
 arcpy.env.overwriteOutput = True
 arcpy.env.outputCoordinateSystem = arcpy.SpatialReference("WGS 1984")
@@ -42,10 +41,6 @@ for i in range (0,83,1):
     remap = "0 0; 1 100000000000 1; NODATA 0"
     Reclass_out= "ReClassRaster_"+scientific_name+".tif"
     arcpy.gp.Reclassify_sa(RawRaster_out, reclassField, remap, Reclass_out)
-    
-    #Execute Reby Forest Cover
-    out_rc_multi_raster = RasterCalculator([Reclass_out, FC_raster],["x", "y"], "x*y")
-    out_rc_multi_raster.save("C:\\859K_sl559\\Scratch\\Test1.tif")
-    
+
     row = rows.next()
 del rows

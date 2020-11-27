@@ -6,7 +6,6 @@
 # Description: 
 # ---------------------------------------------------------------------------
 # Import system modules
-import arcpy
 from arcpy.sa import *
 
 
