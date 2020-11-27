@@ -20,6 +20,9 @@ for i in range (0,83,1):
     scientific_name=row[1]
     Min_elevation=row[2]
     Max_elevation=row[3]
+    print(Min_elevation)
+    print(Max_elevation)
+    
     
     #multishapefile to single shapfiles
     arcpy.AddMessage("Producing {} indivial shapfile".format(row[1]))
@@ -41,15 +44,8 @@ for i in range (0,83,1):
     arcpy.gp.Reclassify_sa(RawRaster_out, reclassField, remap, Reclass_out)
     
     #Execute Reby Forest Cover
-    #out_fc_raster = arcpy.gp.RasterCalculator_sa([Reclass_out, FC_raster], ["x", "y"],"x*y", "", "FirstOf")
-    #out_fc_raster.save("FC_"+scientific_name+".tif")
+    out_rc_multi_raster = RasterCalculator([Reclass_out, FC_raster],["x", "y"], "x*y")
+    out_rc_multi_raster.save("C:\\859K_sl559\\Scratch\\Test1.tif")
     
     row = rows.next()
 del rows
-
-
-
-
-
-
-

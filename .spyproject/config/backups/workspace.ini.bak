@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['..\\..\\Users\\sl559\\.spyder-py3\\temp.py', 'Script-Part1_Convert_Multi-Rowed-Shapefile_To_Classified-Rasters.py', 'Script-Part2_Sum_Up_All_the_Reclassified_Rasters.py', 'Script-Part1.1_Convert_Multi-Rowed-Shapefile_To_Kmls, .py', 'Trying_RasterCalculator.py', 'Binbin_RefineByElevation.py']
+recent_files = ['Script-Part1_Convert_Multi-Rowed-Shapefile_To_Classified-Rasters.py', 'Trying_RasterCalculator.py', 'Binbin_RefineByElevation.py', 'Script-Part2_Sum_Up_All_the_Reclassified_Rasters.py', 'Script-Part1.1_Convert_Multi-Rowed-Shapefile_To_Kmls, .py']
 

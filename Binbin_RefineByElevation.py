@@ -2,6 +2,7 @@
 ## For China umbrella species project
 ## Refine a folder of polygon ranges with elevational preferences 
 ##--------------------------------------------------------------------------------------------------
+import arcpy
 import arcgisscripting
 gp = arcgisscripting.create()
 
@@ -21,16 +22,21 @@ outraster=r"C:\859K_sl559\Scratch_Con"
 FCs = gp.ListRasters("ReClassRaster*")
 FCs.Reset()
 FC = FCs.Next()
+
+rows = arcpy.da.SearchCursor(inputShapefile,['FID', "Scientific", "Min", "Max"]) 
+row = rows.next()
+print(row)
 while FC:
     print (FC)
     #refine by elevation
     #first get the elevation for the species
-    rows = gp.searchcursor(inputShapefile)
-    for row in rows:
-        if row.Scientific == FC[13:FC.rfind('.')]:
-            min_elev = row.getvalue('Min')
+    recs = gp.searchcursor(inputShapefile)
+    for rec in recs:
+        print ("continue")
+        if rec.Scientific == FC[14:FC.rfind('.')]:
+            min_elev = rec.getvalue('Min')
             print (min_elev)
-            max_elev = row.getvalue('Max')
+            max_elev = rec.getvalue('Max')
             print (max_elev)
         ##Second part: do the algebra expression:
         #replace output name
