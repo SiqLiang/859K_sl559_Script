@@ -12,6 +12,8 @@ arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
 inputShapefile = "C:\\859K_sl559\\Data\\EndemicBirdSpecies_inROI_final.shp"
 DEM_roi = "C:\\859K_sl559\\Data\\Area_mask_DEM90m_final.tif"
 FC30_roi= "C:\\859K_sl559\\Data\\H_TC2000_ReC.tif"
+PA_roi= "C:\\859K_sl559\\Data\\SumPA_rC.tif"
+B50_roi= "C:\\859K_sl559\\Data\\WCountriesG_B50_rC.tif"
 
 #setting coordinate system
 arcpy.env.outputCoordinateSystem = arcpy.SpatialReference("WGS 1984")
@@ -74,7 +76,17 @@ for i in range (0,83,1):
     ReBy_FC30 = Raster(BL_Map)*Raster(FC30_roi)
     ReBy_FC30.save("ReBy_FC30_"+scientific_name+".tif")
     
+    #BL_Map Refined by both species elevation range and Forest Cover>30 (Double Refined)
+    ReBy_DEMFC30 = Raster(BL_Map)*Raster(ConDEM)*Raster(FC30_roi)
+    ReBy_DEMFC30.save("ReBy_DEMFC30_"+scientific_name+".tif")
     
+    #The double refined new species distribution area covered by Protected Area
+    DEMFC30_PA = Raster(ReBy_DEMFC30)*Raster(PA_roi)
+    DEMFC30_PA.save("DEMFC30_PA_"+scientific_name+".tif")
+    
+    #The double refined new species distribution area in Country boundary buffer 50km
+    DEMFC30_B50= Raster(ReBy_DEMFC30)*Raster(B50_roi)
+    DEMFC30_B50.save("DEMFC30_B50_"+scientific_name+".tif")
     
     row = rows.next()
 del rows     
