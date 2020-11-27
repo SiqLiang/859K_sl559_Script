@@ -11,6 +11,7 @@ arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
 #input datasets
 inputShapefile = "C:\\859K_sl559\\Data\\EndemicBirdSpecies_inROI_final.shp"
 DEM_roi = "C:\\859K_sl559\\Data\\Area_mask_DEM90m_final.tif"
+FC30_roi= "C:\\859K_sl559\\Data\\H_TC2000_ReC.tif"
 
 #setting coordinate system
 arcpy.env.outputCoordinateSystem = arcpy.SpatialReference("WGS 1984")
@@ -68,6 +69,12 @@ for i in range (0,83,1):
     #BL_Map Refined by species elevation range
     ReBy_DEM = Raster(BL_Map)*Raster(ConDEM)
     ReBy_DEM.save("ReBy_DEM_"+scientific_name+".tif")
+    
+    #BL_Map Refined by Forest Cover >30
+    ReBy_FC30 = Raster(BL_Map)*Raster(FC30_roi)
+    ReBy_FC30.save("ReBy_FC30_"+scientific_name+".tif")
+    
+    
     
     row = rows.next()
 del rows     
