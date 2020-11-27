@@ -24,34 +24,40 @@ for i in range (0,83,1):
     print(Min_elevation)
     print(Max_elevation) 
     
-    #multishapefile to single shapfiles
+    #multishapefile to single shapfiles 
     arcpy.AddMessage("Producing {} indivial shapfile".format(row[1]))
     poly_out = "Sp_"+scientific_name+".shp"
     arcpy.Select_analysis(inputShapefile,poly_out,"\"FID\"= %i"%i) 
     
-    #Execute Feature to Raster
+    #Execute BL_Map Feature to Raster
     arcpy.AddMessage("Producing {} raw raster".format(row[1]))
     RawRaster_out = "RawRaster_"+scientific_name+".tif"
     cellSize = 0.0008333
     field = "83LandBird"
     arcpy.FeatureToRaster_conversion(poly_out, field, RawRaster_out, cellSize)
     
-    #Execute Reclassify
+    #Execute Reclassify BL_Map
     arcpy.AddMessage("Reclassifying {} raw raster".format(row[1]))
     reclassField = "Value"
     remap = "0 0; 1 100000000000 1; NODATA 0"
-    Reclass_out= "ReClassRaster_"+scientific_name+".tif"
+    Reclass_out= "BL_Map_"+scientific_name+".tif"
     arcpy.gp.Reclassify_sa(RawRaster_out, reclassField, remap, Reclass_out)
    
-    #Execute Con DEM, failed
+    #Execute Con to DEM, get ConRaw
     Input_true_raster_or_constant_value = "1"
     Input_false_raster_or_constant_value = "0"
-    ConDEM_out = "ConDEM_"+scientific_name+".tif"
+    ConRaw = "ConRaw_"+scientific_name+".tif"
     whereClause = "\"Value\" >= {} AND \"Value\" <={}".format(Min_elevation, Max_elevation)
     print(whereClause)
     arcpy.gp.Con_sa(DEM_roi, Input_true_raster_or_constant_value, 
-                ConDEM_out, Input_false_raster_or_constant_value, 
+                ConRaw, Input_false_raster_or_constant_value, 
                 whereClause)
+    #Reclassify ConRaw
+    reclassField = "Value"
+    remap = "0 0; 1 1; NODATA 0"
+    ConDEM= "ConDEM_"+scientific_name+".tif"
+    arcpy.gp.Reclassify_sa(ConRaw, reclassField, remap, ConDEM)
+    
     
     row = rows.next()
 del rows
