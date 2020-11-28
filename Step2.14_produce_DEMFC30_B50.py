@@ -13,5 +13,11 @@ sumRas = 0 # set init value and then loop through file list
 fileList = arcpy.ListRasters('ReBy_DEMFC30_*', 'All')
 len(fileList) #Check how many Reclassified rasters are avaiable now
 for fileName in fileList:
+    print(fileName)
+    scientific_name = fileName[13:fileName.rfind('.')]
     outRas = Raster(fileName)*Raster(B50_roi)
     outRas.save("DEMFC30_B50_"+scientific_name+".tif")
+    print(outRas)
+
+#fileList = arcpy.ListRasters('DEMFC30_B50_*', 'All')
+#len(fileList) 
