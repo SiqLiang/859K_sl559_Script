@@ -12,8 +12,7 @@ arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
 inputShapefile = "C:\\859K_sl559\\Data\\EndemicBirdSpecies_inROI_final.shp"
 DEM_roi = "C:\\859K_sl559\\Data\\Area_mask_DEM90m_final.tif"
 FC30_roi= "C:\\859K_sl559\\Data\\H_TC2000_ReC.tif"
-PA_roi= "C:\\859K_sl559\\Data\\SumPA_rC.tif"
-B50_roi= "C:\\859K_sl559\\Data\\WCountriesG_B50_rC.tif"
+
 
 #setting coordinate system
 arcpy.env.outputCoordinateSystem = arcpy.SpatialReference("WGS 1984")
