@@ -9,4 +9,4 @@ fileList = arcpy.ListRasters('BL_Map_*', 'All')
 len(fileList) #Check how many Reclassified rasters are avaiable now
 for fileName in fileList:
     sumRas = arcpy.Raster(fileName) + sumRas
-sumRas.save('C:\\859K_sl559\\Scratch1\\BL_Map_BirdSpeciesRichnessMap.tif')
+sumRas.save('C:\\859K_sl559\\Scratch2\\BL_Map_BirdSpeciesRichnessMap.tif')
