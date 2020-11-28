@@ -82,8 +82,18 @@ for i in range (0,83,1):
     row = rows.next()
 del rows     
 
-fileList = arcpy.ListRasters('ReBy_DEMFC30_*', 'All')
-len(fileList)
+#fileList = arcpy.ListRasters('BL_Map_*', 'All')
+#len(fileList)
+
+#fileList = arcpy.ListRasters('ReBy_DEM_*', 'All')
+#len(fileList)
+
+#fileList = arcpy.ListRasters('ReBy_FC30_*', 'All')
+#len(fileList)
+
+#fileList = arcpy.ListRasters('ReBy_DEMFC30_*', 'All')
+#len(fileList)
+
 
 
 
