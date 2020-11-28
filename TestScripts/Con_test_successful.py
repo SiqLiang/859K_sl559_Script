@@ -14,7 +14,7 @@ Max_elevation=4000
 whereClause = "\"Value\" >= {} AND \"Value\" <={}".format(Min_elevation, Max_elevation)
 print(whereClause)
 
-# Process: Con
+# Process: Con 
 arcpy.gp.Con_sa(Area_mask_DEM90m_final_tif, Input_true_raster_or_constant_value, 
                 Con_tif3, Input_false_raster_or_constant_value, 
                 whereClause)
