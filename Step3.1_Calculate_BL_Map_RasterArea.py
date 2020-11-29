@@ -20,7 +20,6 @@ print (os.path.exists("C:\\859K_sl559\\Scaratch1_1_BL_Map_rasters_and_doc\\BL_Ma
 # for projection World_Eckert_IV
 cellsize = 94.126759784775*94.126759784775/1000000
 #cellsize= 94.126759784775m*94.126759784775m/1000000 = 0.0088598469075807 square km2
-BL_Map_fileObj.write("Hello there!")
 BL_Map_fileObj.write('Species, '+'Area'+"\n")
 
 #fileList = arcpy.ListRasters('BL_Map_*')
@@ -33,4 +32,4 @@ BL_Map_fileObj.write('Species, '+'Area'+"\n")
     #area = cellCount*cellsize
     #areaOut.write(str(scientific_name)+', '+str(area)+"\n")
 #fileObj.write("Hello there!")
-fileObj.close()
+BL_Map_fileObj.close()
