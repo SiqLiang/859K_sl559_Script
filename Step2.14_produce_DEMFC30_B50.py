@@ -19,5 +19,5 @@ for fileName in fileList:
     outRas.save("DEMFC30_B50_"+scientific_name+".tif")
     print(outRas)
 
-#fileList = arcpy.ListRasters('DEMFC30_B50_*', 'All')
-#len(fileList) 
+fileList = arcpy.ListRasters('DEMFC30_B50_*', 'All')
+len(fileList) 
