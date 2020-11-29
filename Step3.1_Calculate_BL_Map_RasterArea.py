@@ -21,6 +21,7 @@ BL_Map_fileObj.write('Species, '+'Area'+"\n")
 # create constant and loop variables.
 # for projection World_Eckert_IV
 cellsize = 94.126759784775*94.126759784775/1000000
+print(cellsize)
 #cellsize= 94.126759784775m*94.126759784775m/1000000 = 0.0088598469075807 square km2
 
 fileList = arcpy.ListRasters('BL_Map_*', 'All')
@@ -30,22 +31,11 @@ for fileName in fileList:
     scientific_name = fileName[7:fileName.rfind('.')]
     print( scientific_name)
     # Create a search cursor for desired raster VALUE, extract COUNT and multiply by cellsize to get area.
-    sCur = arcpy.da.SearchCursor(fileName, ["Value", "Count"], '"VALUE" = 1')
-    print (sCur[1])
-    for row in sCur:
-        cellCount = row.getValue("Count")
-        area = cellCount*cellsize
-        BL_Map_fileObj.write(str(scientific_name)+', '+str(area)+"\n")
-        fileName = fileList.Next()
-
-
-
-#for fileName in fileList:
-    #print(fileName)
-    #scientific_name = fileName[7:fileName.rfind('.')]
-    #sCur = arcpy.da.SearchCursor(fileName, "Value", '"Value" = 1')
-    #cellCount = sCur.getValue("COUNT")
-    #area = cellCount*cellsize
-    #areaOut.write(str(scientific_name)+', '+str(area)+"\n")
-#fileObj.write("Hello there!")
+    rows = arcpy.da.SearchCursor(fileName, ["Value", "Count"], '"VALUE" = 1')
+    row = rows.next()
+    cellcount= row[1]
+    print(cellcount)
+    area = cellcount*cellsize
+    print(area)
+    BL_Map_fileObj.write(str(scientific_name)+', '+str(area)+"\n")
 BL_Map_fileObj.close()
