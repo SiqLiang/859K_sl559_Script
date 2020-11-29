@@ -9,7 +9,7 @@ fileList = arcpy.ListRasters('ReBy_DEMFC30_*', 'All')
 len(fileList) #Check how many Reclassified rasters are avaiable now
 for fileName in fileList:
     sumRas = arcpy.Raster(fileName) + sumRas
-sumRas.save('C:\\859K_sl559\\Scratch1\\ReBy_DEMFC30_BirdSpeciesRichnessMap.tif')
+sumRas.save('C:\\859K_sl559\\Scratch2\\ReBy_DEMFC30_BirdSpeciesRichnessMap.tif')
 
 
 
