@@ -31,7 +31,7 @@ print (os.getcwd())
 # Create a new file in the current working directory, write some text, and close it
 fileObj = open("BL_Map_RasterArea.txt",'w')
 fileObj.write("Hello there!")
-fileObj.close()
+fileObj.close() 
 
 # Open the file (Close notepad manually when done!)
 os.system("notepad myFile.txt")
