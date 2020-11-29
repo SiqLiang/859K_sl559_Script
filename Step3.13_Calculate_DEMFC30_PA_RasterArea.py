@@ -7,7 +7,7 @@ import arcpy
 import os
 from arcpy.sa import *
 arcpy.env.overwriteOutput = True
-arcpy.env.workspace = "C:\\859K_sl559\\Scratch3"
+arcpy.env.workspace = "C:\\859K_sl559\\Scratch1"
 os.chdir("C:\\859K_sl559\\Doc")
 
 #print the current working directory
@@ -31,17 +31,19 @@ print(len(fileList))
 for fileName in fileList:
     print(fileName)
     scientific_name = fileName[11:fileName.rfind('.')]
-    print( scientific_name)
+    print(scientific_name)
     # Create a search cursor for desired raster VALUE, extract COUNT and multiply by cellsize to get area.
     rows = arcpy.da.SearchCursor(fileName, ["Value", "Count"],'"VALUE" = 1')
-    for row in rows:
+    for row in rows:# Internal StopIteration when there is no value=1
         if row==None:
-           BL_Map_fileObj.write(str(scientific_name)+', '+"0"+"\n")
+            print("xxxxx") #Doesn't work at here because the iteration has stopped at the last line
+            BL_Map_fileObj.write(str(scientific_name)+', '+"0"+"\n") #Doesn't work at here
         else:
             cellcount= row[1]
             print(cellcount)
             area = cellcount*cellsize
             print(area)
             BL_Map_fileObj.write(str(scientific_name)+', '+str(area)+"\n")
-            
+BL_Map_fileObj.close()
+
 
