@@ -1,4 +1,5 @@
-# This script takes a bunch of rasters in a folder and extracts the count values, multiplies it by the cell size, and outputs the area in a table (readable to Excel)
+# This script takes a bunch of rasters in a folder and extracts the count values, 
+# multiplies it by the cell size, and outputs the area in a table (readable to Excel)
 
 # import necessary arc functions.
 import arcgisscripting
