@@ -35,15 +35,15 @@ for fileName in fileList:
    # Create a search cursor for desired raster VALUE, extract COUNT and multiply by cellsize to get area.
     rows = arcpy.da.SearchCursor(fileName, ["Value", "Count"],'"VALUE" = 1')
     try:
-        for row in rows:# Internal StopIteration when there is no value=1
-            cellcount= row[1]
-            print(cellcount)
-            area = cellcount*cellsize
-            print(area)
-            BL_Map_fileObj.write(str(scientific_name)+', '+str(area)+"\n")
-    except:
-            print("xxxxx~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Doesn't work at here because the iteration has stopped at the last line
-            BL_Map_fileObj.write(str(scientific_name)+', '+"0"+"\n") #Doesn't work at here
+        row=rows.next()
+        cellcount= row[1]
+        print(cellcount)
+        area = cellcount*cellsize
+        print(area)
+        BL_Map_fileObj.write(str(scientific_name)+', '+str(area)+"\n")
+    except Exception as e:
+        print("xxxxx~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Doesn't work at here because the iteration has stopped at the last line
+        BL_Map_fileObj.write(str(scientific_name)+', '+"0"+"\n") #Doesn't work at here
                 
 BL_Map_fileObj.close()
 
