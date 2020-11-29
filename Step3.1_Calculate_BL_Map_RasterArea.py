@@ -25,14 +25,13 @@ cellsize = 94.126759784775*94.126759784775/1000000
 
 fileList = arcpy.ListRasters('BL_Map_*', 'All')
 len(fileList)
-fileName = fileList.Next()
-
-
-while fileList:
+for fileName in fileList:
     print(fileName)
     scientific_name = fileName[7:fileName.rfind('.')]
+    print( scientific_name)
     # Create a search cursor for desired raster VALUE, extract COUNT and multiply by cellsize to get area.
-    sCur = arcpy.da.SearchCursor(fileName, "Value", '"Value" = 1')
+    sCur = arcpy.da.SearchCursor(fileName, ["Value", "Count"], '"VALUE" = 1')
+    print (sCur[1])
     for row in sCur:
         cellCount = row.getValue("Count")
         area = cellCount*cellsize
