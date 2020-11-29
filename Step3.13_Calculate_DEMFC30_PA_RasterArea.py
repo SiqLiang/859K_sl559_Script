@@ -41,9 +41,9 @@ for fileName in fileList:
         area = cellcount*cellsize
         print(area)
         BL_Map_fileObj.write(str(scientific_name)+', '+str(area)+"\n")
-    except Exception as e:
-        print("xxxxx~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Doesn't work at here because the iteration has stopped at the last line
-        BL_Map_fileObj.write(str(scientific_name)+', '+"0"+"\n") #Doesn't work at here
+    except Exception:
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Note there is no value=1
+        BL_Map_fileObj.write(str(scientific_name)+', '+"0"+"\n") 
                 
 BL_Map_fileObj.close()
 
