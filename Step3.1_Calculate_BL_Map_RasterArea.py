@@ -6,16 +6,17 @@ import arcpy
 import os
 from arcpy.sa import *
 arcpy.env.overwriteOutput = True
-arcpy.env.workspace = "C:\\859K_sl559\\Scaratch1_1_BL_Map_rasters_and_doc"
+arcpy.env.workspace = "C:\\859K_sl559\\Scratch1"
+os.chdir("C:\\859K_sl559\\Doc")
 
 #print the current working directory
 #print (os.getcwd())
 #Check the existence of the target txt file
-print (os.path.exists("C:\\859K_sl559\\Scaratch1_1_BL_Map_rasters_and_doc\\BL_Map_RasterArea.txt"))
+print (os.path.exists("C:\\859K_sl559\\Doc\\BL_Map_RasterArea.txt"))
 # Create a new file in the current working directory, write some text, and remember to close it
 BL_Map_fileObj = open("BL_Map_RasterArea.txt",'w')
 BL_Map_fileObj.truncate(0) # clear eveything already in the txt file
-BL_Map_fileObj.write('Species, '+'Area'+"\n")
+BL_Map_fileObj.write('BL_Map_Species, '+'Area_sqkm2'+"\n")
 #BL_Map_fileObj.close()
 
 # create constant and loop variables.
