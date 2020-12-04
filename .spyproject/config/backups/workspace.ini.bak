@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['InArcPro_SelectByLocation.py', 'ArcMap_SelectByLocation.py', 'Step1_Refine_BL_map_by_DEMFC30.py']
+recent_files = ['InArcPro_SelectByLocation.py', 'Step1_Refine_BL_map_by_DEMFC30.py', 'Step3.16_Calculate_DEMFC30_B50_RasterArea.py']
 
