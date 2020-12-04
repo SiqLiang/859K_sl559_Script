@@ -4,10 +4,10 @@ import arcpy
 import os
 arcpy.env.overwriteOutput = True
 arcpy.env.workspace = "C:\\859K_sl559\\Scratch3"
-arcpy.env.extent = "C:\859K_sl559\Scratch3\ReclassNoData_H_TC2000.tif"
+arcpy.env.extent = "C:\\859K_sl559\\Scratch3\\ReclassNoData_H_TC2000.tif"
 
 # Local variables:
-ReclassNoData_H_TC2000_tif = "C:\859K_sl559\Scratch3\ReclassNoData_H_TC2000.tif"
+ReclassNoData_H_TC2000_tif = "C:\\859K_sl559\\Scratch3\\ReclassNoData_H_TC2000.tif"
 RegionG_rCNoDataTC2000_test1_tif = "C:\\859K_sl559\\Scratch3\\RegionG_rCNoDataTC2000_test1.tif"
 
 # Process: Region Group
