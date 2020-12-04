@@ -24,4 +24,4 @@ RegionG2_rCRGrCndTC2000_tif = "C:\\859K_sl559\\Scratch3\\RegionG2_rCRGrCndTC2000
 # Process: Region Group
 arcpy.gp.RegionGroup_sa(Reclass_RegionG_rCNTC2000_tif, RegionG2_rCRGrCndTC2000_tif, "FOUR", "WITHIN", "ADD_LINK", "")
 
-print (os.path.exists("C:\\859K_sl559\\Scratch3\\RegionG2_rCRGrCndTC2000_tif"))
+print (os.path.exists("C:\\859K_sl559\\Scratch3\\RegionG2_rCRGrCndTC2000.tif"))
