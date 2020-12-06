@@ -17,7 +17,7 @@ arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
 
 
 # Local variables:
-BLraw_Acanthoptila_nipalensis_tif = "BLraw_Acanthoptila_nipalensis.tif"
+BLraw_Acanthoptila_nipalensis_tif = "C:\\859K_sl559\\Scratch1\\BLraw_Acanthoptila_nipalensis.tif"
 RasterTPolygon_test_A1_shp = "C:\\859K_sl559\\Scratch3\\RasterTPolygon_test_A1.shp"
 
 # Process: Raster to Polygon
