@@ -1,0 +1,81 @@
+---
+title: "TheHotspotProject"
+author: "Siqi"
+date: "12/6/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#The table for the refined maps
+data <- read.csv("Table_2020Nov29.csv")
+ReBy_DEM<- data$ReBy_DEM
+ReBy_FC30<-data$ReBy_FC30
+ReBy_DEMFC30<-data$ReBy_DEMFC30
+DEMFC30_PA<-data$DEMFC30_PA
+DEMFC30_B50<-data$DEMFC30_B50
+
+#hist(ReBy_DEM)
+par(mfrow=c(1,2))
+hist(ReBy_DEM, main="Reby_DEM", xlab="Area_Ratio",ylab="Frequency",xlim=c(0,1),ylim=c(0,30),las=1, breaks=5)
+#qqnorm(ReBy_DEM)
+#qqline(ReBy_DEM)
+
+#hist(ReBy_FC30)
+hist(ReBy_FC30, main="ReBy_FC30", xlab="Area_Ratio",ylab="Frequency",xlim=c(0,1),ylim=c(0,30),las=1, breaks=5)
+#qqnorm(ReBy_FC30)
+#qqline(ReBy_FC30)
+
+#hist(ReBy_DEMFC30)
+hist(ReBy_DEMFC30, main="ReBy_DEMFC30", xlab="Area_Ratio",ylab="Frequency",xlim=c(0,1),ylim=c(0,30),las=1, breaks=5)
+#qqnorm(ReBy_DEMFC30)
+#qqline(ReBy_DEMFC30)
+
+#hist(DEMFC30_B50)
+hist(DEMFC30_B50, main="DEMFC30_B50", xlab="Area_Ratio",ylab="Frequency",xlim=c(0,1),ylim=c(0,30),las=1, breaks=5)
+#qqnorm(DEMFC30_B50)
+#qqline(DEMFC30_B50)
+
+#hist(DEMFC30_PA)
+hist(DEMFC30_PA, main="DEMFC30_PA", xlab="Area_Ratio",ylab="Frequency",xlim=c(0,1),ylim=c(0,50),las=1, breaks=5)
+#qqnorm(DEMFC30_PA)
+#qqline(DEMFC30_PA)
+
+mean(ReBy_DEM)
+sd(ReBy_DEM)
+
+mean(ReBy_FC30)
+sd(ReBy_FC30)
+
+mean(ReBy_DEMFC30)
+sd(ReBy_DEMFC30)
+
+mean(DEMFC30_PA)
+sd(DEMFC30_PA)
+
+mean(DEMFC30_B50)
+sd(DEMFC30_B50)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
