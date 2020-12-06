@@ -67,13 +67,18 @@ range(Patch_Area)
 #Categorize
 Cat_Patch_Area<- cut(Patch_Area, breaks = c(100,1000,10000,100000,1000000,10000000,100000000), labels=c("100-1000","1000-10000","10000-100000","100000-1000000","1000000-10000000","1000000-100000000"))
 Cat_Patch_Area[1:10]
-
+summary(Cat_Patch_Area)
 library("plyr")
-library("ggplot2")
-y<-count(Cat_Patch_Area)
-y
-barplot(y$freq, names.arg =y$x)
+Cat_count<-count(Cat_Patch_Area)
+Cat_count
+class(Cat_count)
+Patch_Area<- Cat_count$x
+Frequency <-Cat_count$freq
 
+barplot(y$freq, names.arg =y$x)
+library("ggplot2")
+ggplot(data=Cat_count, aes(x=Patch_Area, y=Frequency)) +
+  geom_bar(stat="identity", width=0.5)
 #par(mfrow=c(1,2))
 
 
