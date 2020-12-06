@@ -22,6 +22,5 @@ arcpy.ProjectRaster_management(RegionG2_rCRGrCndTC2000_tif, RegionG2TC2000_Raste
 
 print (os.path.exists("C:\\859K_sl559\\Scratch3\\RegionG2TC2000_RasterProjected.tif"))
 
-#ExecuteError: Failed to execute. Parameters are not valid.
-#Undefined coordinate system for input dataset.
-#Failed to execute (ProjectRaster).
+#Check The documentaion standalone script; 
+#It is a little bit complex, So I conducted this step in ArcMap(My PC)__Suessfully
