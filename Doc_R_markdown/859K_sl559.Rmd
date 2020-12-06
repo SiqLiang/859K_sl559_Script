@@ -65,18 +65,21 @@ Patch_data <- read.csv("RegionG2_rCRGrCndTC2000_tif_AttributeTable.csv")
 Patch_Area <- Patch_data$P_Area_ha_Excel
 range(Patch_Area)
 #Categorize
-Cat_Patch_Area<- cut(Patch_Area, breaks = c(100,1000,10000,100000,1000000,10000000,100000000), labels=c("A","B","C","D","E","F"))
+Cat_Patch_Area<- cut(Patch_Area, breaks = c(100,1000,10000,100000,1000000,10000000,100000000), labels=c("100-1000","1000-10000","10000-100000","100000-1000000","1000000-10000000","1000000-100000000"))
 Cat_Patch_Area[1:10]
-summary(Cat_Patch_Area)
-#A     B     C     D     E     F 
-#28167  3423   431    53    11     2
+
+library("plyr")
+library("ggplot2")
+y<-count(Cat_Patch_Area)
+y
+barplot(y$freq, names.arg =y$x)
 
 #par(mfrow=c(1,2))
 
 
 #hist(Patch_id, xlab="Patch_id",ylab="Frequency",xlim=c(0,40000),ylim=c(0,2),las=1, breaks=30)
-qqnorm(Patch_Area)
-qqline(Patch_Area)
+#qqnorm(Patch_Area)
+#qqline(Patch_Area)
 ```
 
 
