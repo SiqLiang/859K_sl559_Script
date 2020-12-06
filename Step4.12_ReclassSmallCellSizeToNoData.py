@@ -15,5 +15,4 @@ Reclass_RegionG_rCNTC2000_tif = "C:\\859K_sl559\\Scratch3\\Reclass_RegionG_rCNTC
 #Execute Reclassify 
 reclassField = "Count"
 remap = "1 112 NODATA; NODATA NODATA"
-BL_Map= "BL_Map_"+scientific_name+".tif"
 arcpy.gp.Reclassify_sa(RegionG_rCNoDataTC2000_test2_tif, reclassField, remap, Reclass_RegionG_rCNTC2000_tif)
