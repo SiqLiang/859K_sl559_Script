@@ -14,5 +14,8 @@ Reclass_RegionG_rCNTC2000_tif = "C:\\859K_sl559\\Scratch3\\Reclass_RegionG_rCNTC
 
 #Execute Reclassify 
 reclassField = "Count"
+#for projection World_Eckert_IV
+#cellsize= 94.126759784775m*94.126759784775m/1000000 = 0.88598469075807 ha
+#100ha/cellsize=112.87  ; patch with 113cell is bigger than 100ha
 remap = "1 112 NODATA; NODATA NODATA"
 arcpy.gp.Reclassify_sa(RegionG_rCNoDataTC2000_test2_tif, reclassField, remap, Reclass_RegionG_rCNTC2000_tif)
