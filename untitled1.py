@@ -1,12 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Dec  4 15:01:09 2020
-
+Created on Fri Dec  4 15:58:32 2020
 @author: sl559
+This file aims ata store codes relavent to the os module
 """
-
-import arcpy
 import os
-arcpy.env.overwriteOutput = True
-arcpy.env.workspace = "C:\859K_sl559\Data\ModisFire2001_2019"
-arcpy.env.extent = "C:\859K_sl559\Scratch3\ReclassNoData_H_TC2000.tif"
+print(dir(os))
