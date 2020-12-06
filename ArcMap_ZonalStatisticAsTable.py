@@ -23,4 +23,4 @@ ZonalTable_RegionG2_dbf = "C:\\859K_sl559\\Scratch3\\ZonalTable_RegionG2.dbf"
 arcpy.gp.ZonalGeometryAsTable_sa(RegionG_Ani_Projected_tif, "Value", ZonalTable_RegionG2_dbf, "94.1231502405956")
 
 #Check The documentaion standalone script; 
-#It is a little bit complex, So I conducted this step in ArcMap(My PC)
+#It is a little bit complex, So I conducted this step in ArcMap(My PC)__Suessfully
