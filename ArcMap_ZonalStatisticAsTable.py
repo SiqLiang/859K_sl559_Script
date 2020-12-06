@@ -7,7 +7,7 @@
 # ---------------------------------------------------------------------------
 
 
-#################################################Notsuccessful
+#################################################Successful, Accurate But very slow
 
 
 
@@ -17,8 +17,9 @@ import arcpy
 
 # Local variables:
 RegionG_Ani_Projected_tif = "RegionG_Ani_Projected.tif"
-ZonalTable_RegionG1_dbf = "C:\\859K_sl559\\Scratch3\\ZonalTable_RegionG2.dbf"
+ZonalTable_RegionG2_dbf = "C:\\859K_sl559\\Scratch3\\ZonalTable_RegionG2.dbf"
 
 # Process: Zonal Geometry as Table
-arcpy.gp.ZonalGeometryAsTable_sa(RegionG_Ani_Projected_tif, "Value", ZonalTable_RegionG1_dbf, "94.1231502405956")
+arcpy.gp.ZonalGeometryAsTable_sa(RegionG_Ani_Projected_tif, "Value", ZonalTable_RegionG2_dbf, "94.1231502405956")
 
+#Check The documentaion standalone script
