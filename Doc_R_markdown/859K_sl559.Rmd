@@ -5,11 +5,11 @@ date: "12/6/2020"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setwd}
+#setwd("C:/859K_sl559/Script/Doc_R_markdown")
 ```
 
-```{r}
+```{r, The table}
 #The table for the refined maps
 data <- read.csv("Table_2020Nov29.csv")
 ReBy_DEM<- data$ReBy_DEM
@@ -60,22 +60,28 @@ mean(DEMFC30_B50)
 sd(DEMFC30_B50)
 ```
 
-## R Markdown
+```{r, Forest Pactch Area}
+Patch_data <- read.csv("RegionG2_rCRGrCndTC2000_tif_AttributeTable.csv")
+Patch_Area <- Patch_data$P_Area_ha_Excel
+range(Patch_Area)
+#Categorize
+Cat_Patch_Area<- cut(Patch_Area, breaks = c(100,1000,10000,100000,1000000,10000000,100000000), labels=c("A","B","C","D","E","F"))
+Cat_Patch_Area[1:10]
+summary(Cat_Patch_Area)
+#A     B     C     D     E     F 
+#28167  3423   431    53    11     2
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+#par(mfrow=c(1,2))
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
+#hist(Patch_id, xlab="Patch_id",ylab="Frequency",xlim=c(0,40000),ylim=c(0,2),las=1, breaks=30)
+qqnorm(Patch_Area)
+qqline(Patch_Area)
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+#plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
