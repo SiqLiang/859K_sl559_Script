@@ -8,18 +8,19 @@
 
 # Import arcpy module
 import arcpy
-#import os
+import os
 arcpy.env.overwriteOutput = True
 arcpy.env.workspace = "C:\\859K_sl559\\Scratch3"
 arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
-#print (os.path.exists("C:\\859K_sl559\\Scratch3\\ReclassNoData_H_TC2000.tif"))
-#print (os.path.exists("C:\\859K_sl559\\Scratch3\\Reclass_RegionG_rCNTC2000.tif"))
+print (os.path.exists("C:\\859K_sl559\\Data\\RegionOfInterest.shp"))
+print (os.path.exists("C:\\859K_sl559\\Scratch3\\RegionG2_rCRGrCndTC2000.tif"))
 
 
 # Local variables:
-BLraw_Acanthoptila_nipalensis_tif = "C:\\859K_sl559\\Scratch1\\BLraw_Acanthoptila_nipalensis.tif"
-RasterTPolygon_test_A1_shp = "C:\\859K_sl559\\Scratch3\\RasterTPolygon_test_A1.shp"
+RegionG2_rCRGrCndTC2000_tif = "C:\\859K_sl559\\Scratch3\\RegionG2_rCRGrCndTC2000.tif"
+RasterTPolygon_RegionG2TC2000_shp = "C:\\859K_sl559\\Scratch3\\RasterTPolygon_RegionG2TC2000.shp"
 
 # Process: Raster to Polygon
-arcpy.RasterToPolygon_conversion(BLraw_Acanthoptila_nipalensis_tif, RasterTPolygon_test_A1_shp, "NO_SIMPLIFY", "Value")
+arcpy.RasterToPolygon_conversion(RegionG2_rCRGrCndTC2000_tif, RasterTPolygon_RegionG2TC2000_shp, "NO_SIMPLIFY", "Value")
 
+print (os.path.exists("C:\\859K_sl559\\Scratch3\\RasterTPolygon_RegionG2TC2000.shp"))
