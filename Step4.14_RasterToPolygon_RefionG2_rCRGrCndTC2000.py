@@ -18,9 +18,9 @@ print (os.path.exists("C:\\859K_sl559\\Scratch3\\RegionG2_rCRGrCndTC2000.tif"))
 
 # Local variables:
 RegionG2_rCRGrCndTC2000_tif = "C:\\859K_sl559\\Scratch3\\RegionG2_rCRGrCndTC2000.tif"
-RasterTPolygon_RegionG2TC2000_shp = "C:\\859K_sl559\\Scratch3\\RasterTPolygon_RegionG2TC2000.shp"
+RasterToPolygon_RegionG2TC2000_shp = "C:\\859K_sl559\\Scratch3\\RasterToPolygon_RegionG2TC2000.shp"
 
 # Process: Raster to Polygon
-arcpy.RasterToPolygon_conversion(RegionG2_rCRGrCndTC2000_tif, RasterTPolygon_RegionG2TC2000_shp, "NO_SIMPLIFY", "Value")
+arcpy.RasterToPolygon_conversion(RegionG2_rCRGrCndTC2000_tif, RasterToPolygon_RegionG2TC2000_shp, "NO_SIMPLIFY", "Value")
 
-print (os.path.exists("C:\\859K_sl559\\Scratch3\\RasterTPolygon_RegionG2TC2000.shp"))
+print (os.path.exists("C:\\859K_sl559\\Scratch3\\RasterToPolygon_RegionG2TC2000.shp"))
