@@ -17,4 +17,4 @@ reC2_RegionG2_TC2000_Proj_tif= "C:\\859K_sl559\\Scratch3\\reC2_RegionG2_TC2000_P
 
 # Maskout the forest area from the Edistance Map
 outRas = Raster(EucDist_reC_RegionG2_TC2000_Proj_tif)*Raster(reC2_RegionG2_TC2000_Proj_tif)
-outRas.save(Forest_EucDist_reC_RegionG2_TC2000_Proj_tif)
+outRas.save("C:\\859K_sl559\\Scratch3\\Forest_EucDist_reC_RegionG2_TC2000_Proj_tif")
