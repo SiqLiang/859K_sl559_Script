@@ -18,6 +18,7 @@ Reclass_EucDist_reC_RegionG2_TC2000_Proj_tif = "C:\\859K_sl559\\Scratch3\\Reclas
 
 # Process: Reclassify
 #arcpy.gp.Reclassify_sa(EucDist_reC_RegionG2_TC2000_Proj_tif, "VALUE", "0 1;0 100 2;100 1000 3;1000 10000 4;10000 13604 5", Reclass_EucDist_reC_RegionG2_TC2000_Proj_tif, "DATA")
-arcpy.gp.Reclassify_sa(EucDist_reC_RegionG2_TC2000_Proj_tif, "VALUE", "0 NODATA;0 100 1;200 400 2;400 800 3;800 1600 4; 1600 3200 5; 3200 6400 6; 6400 12800 7; 12800 13604 8", Reclass_EucDist_reC_RegionG2_TC2000_Proj_tif, "DATA")
+#arcpy.gp.Reclassify_sa(EucDist_reC_RegionG2_TC2000_Proj_tif, "VALUE", "0 NODATA;0 100 1;200 400 2;400 800 3;800 1600 4; 1600 3200 5; 3200 6400 6; 6400 12800 7; 12800 25600 8", Reclass_EucDist_reC_RegionG2_TC2000_Proj_tif, "DATA")
+arcpy.gp.Reclassify_sa(EucDist_reC_RegionG2_TC2000_Proj_tif, "VALUE", "0 NODATA;0 1000 1;1000 2000 2;2000 4000 3;4000 8000 4;8000 13604 5", Reclass_EucDist_reC_RegionG2_TC2000_Proj_tif, "DATA")
 
  
