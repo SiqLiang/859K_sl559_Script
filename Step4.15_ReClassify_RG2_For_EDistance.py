@@ -1,3 +1,6 @@
+#Before I calculate E_Distance, I need to convert the forest patches into NoData and 
+#convert the current NoData to 1
+
 import arcpy
 from arcpy.sa import *
 
