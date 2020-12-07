@@ -9,7 +9,7 @@ for year in yearlist:
     print(os.getcwd())
     os.listdir(path)
     print(len(os.listdir(path)))
-    WantedFilelist= ["Bangladesh", "Bhutan", "China", "India", "Laos", "Myanmar", "Nepal", "Thailand", "Vietnam"]
+    WantedFilelist= ["Bangladesh", "Bhutan", "China", "India", "Lao_PDR", "Myanmar", "Nepal", "Thailand", "Vietnam"]
     filelist= os.listdir(path)
     for file in filelist:
         print(file)
