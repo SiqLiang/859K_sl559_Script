@@ -19,3 +19,4 @@ for year in yearlist:
             print("This {} fire dataset is selected".format(Country_name))
         else:
             os.remove(file)
+            
