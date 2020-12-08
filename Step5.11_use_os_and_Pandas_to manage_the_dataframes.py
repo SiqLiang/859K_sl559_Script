@@ -66,11 +66,11 @@ print(CountrySummary_dfs[-9:])
 
 #Construct 2001-2019 summary dataset for each country
 
-#Clear the folder
-import glob
-files = glob.glob("C:\\859K_sl559\\Doc\\ModisFire\\*")
-for f in files:
-    os.remove(f)
+##Clear the folder
+#import glob
+#files = glob.glob("C:\\859K_sl559\\Doc\\ModisFire\\*")
+#for f in files:
+    #os.remove(f)
     
 n=1
 for Country_name in WantedFilelist:
@@ -82,12 +82,14 @@ for Country_name in WantedFilelist:
     path= os.path.join(ModisFire_basepath,Country_excel) 
     CountrySummary_df.to_excel(path, sheetNumber)
     n=n+1
-
-CountrySummary_China_df= CountrySummary_dfs.loc[CountrySummary_dfs["Country_name"]==Country_name]
-import matplotlib.pyplot as plt
-fig = plt.figure()
-ax = fig.add_axes([0,0,1,1])
-ax.bar(CountrySummary_China_df["Year"],CountrySummary_China_df["NumberOfFire"])
-ax.set_ylabel("Number of Fire")
-ax.set_title("China, "+ "fire confidendence threshold"+ str(ConfidendenceThreshold))
-plt.show()
+    
+    
+##Weird y-aex plot 
+#CountrySummary_China_df= CountrySummary_dfs.loc[CountrySummary_dfs["Country_name"]==Country_name]
+#import matplotlib.pyplot as plt
+#fig = plt.figure()
+#ax = fig.add_axes([0,0,1,1])
+#ax.bar(CountrySummary_China_df["Year"],CountrySummary_China_df["NumberOfFire"])
+#ax.set_ylabel("Number of Fire")
+#ax.set_title("China, "+ "fire confidendence threshold"+ str(ConfidendenceThreshold))
+#plt.show()
