@@ -2,6 +2,15 @@
 #Import the Pandas librar
 import os
 import pandas as pd
+
+#Construct a text fire to store all the index
+print (os.path.exists("C:\\859K_sl559\\Doc\\ModisFire_2001_2019_9Countries.txt"))
+# Create a new file in the current working directory, write some text, and remember to close it
+Fire_fileObj = open("C:\\859K_sl559\\Doc\\ModisFire_2001_2019_9Countries.txt",'w')
+Fire_fileObj.truncate(0) # clear eveything already in the txt file
+Fire_fileObj.write('Country_name, '+'Year, '+ "NumberOfFire" +"\n")
+#Fire_fileObj.close()
+
 print(os.getcwd())
 bathpath="C:\\859K_sl559\\Data\\ModisFire2001_2019"
 yearlist=["2001","2002","2003","2004","2005","2006","2007","2008","2009","2010",
@@ -30,12 +39,15 @@ for year in yearlist:
             df_raw_1=df_raw_0[["FileName", "latitude","longitude","confidence","acq_date", "acq_time"]]
             #Set confidence threshold
             df_raw_2= df_raw_1.loc[df_raw_1["confidence"] >= 80]
+            NumberOfFire= len(df_raw_2)
+            print(NumberOfFire)
+            #write
             #print(df_raw_1.tail())
             #print(df_raw_2.tail())
             #Append the subset dataframe to a huge dataframe
             dfs = dfs.append(df_raw_2, ignore_index=True, sort=False)
-            print(len(dfs))     
+            #print(len(dfs))     
         else:
             os.remove(file)
             
-
+Fire_fileObj.close()
