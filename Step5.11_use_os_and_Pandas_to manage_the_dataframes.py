@@ -73,3 +73,17 @@ ModisFire_basepath = "C:\\859K_sl559\\Doc\\ModisFire"
 Detailed_excel= "Detailed_"+"ConfidenceThreshold_"+str(ConfidendenceThreshold)+".xlsx"
 path= os.path.join(ModisFire_basepath,Detailed_excel) 
 Detailed_dfs.to_excel(path, 'Raw') 
+
+#Export Detailed_dfs in 2003 toexcel; df.to_excel('output.xlsx', 'Sheet1')
+Detailed_2003_dfs= Detailed_dfs.loc[Detailed_dfs["Year"] == 2003]
+ModisFire_basepath = "C:\\859K_sl559\\Doc\\ModisFire"
+Detailed_2003_excel= "Detailed_2003_"+"ConfidenceThreshold_"+str(ConfidendenceThreshold)+".xlsx"
+path= os.path.join(ModisFire_basepath,Detailed_2003_excel) 
+Detailed_2003_dfs.to_excel(path, 'Raw') 
+
+#Export Detailed_dfs in 2019 toexcel; df.to_excel('output.xlsx', 'Sheet1')
+Detailed_2019_dfs= Detailed_dfs.loc[Detailed_dfs["Year"] == 2003]
+ModisFire_basepath = "C:\\859K_sl559\\Doc\\ModisFire"
+Detailed_2019_excel= "Detailed_2019_"+"ConfidenceThreshold_"+str(ConfidendenceThreshold)+".xlsx"
+path= os.path.join(ModisFire_basepath,Detailed_2019_excel) 
+Detailed_2019_dfs.to_excel(path, 'Raw') 
