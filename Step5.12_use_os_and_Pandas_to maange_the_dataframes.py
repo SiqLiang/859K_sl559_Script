@@ -28,18 +28,11 @@ for year in yearlist:
             df_raw_0 = pd.read_csv(file)
             df_raw_0['FileName'] = Country_name+"_"+year
             df_raw_1=df_raw_0[["FileName", "latitude","longitude","confidence","acq_date", "acq_time"]]
-            #delete the head
-            #df_raw_2=df_raw_1[1:]
             print(df_raw_1.tail())
-            #mask subset dataframe by condition
-            ####df_raw_2= df_raw_1.mask("confidence">10) 
-            #Check masked subset dataframe
-            ###print(df_raw_2[1:5])
             #Append the masked subset dataframe to the ultimate huge dataframe
-            dfs.append(df_raw_1)
-            print(dfs.tail())   
+            dfs = dfs.append(df_raw_1, ignore_index=True, sort=False)
+            print(len(dfs))
+            
         else:
             os.remove(file)
             
-
-dfs[648:658]
