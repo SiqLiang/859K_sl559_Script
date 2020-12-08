@@ -2,6 +2,8 @@
 #Import the Pandas librar
 import os
 import pandas as pd
+#Set confidence threshold
+ConfidendenceThreshold= 90
 
 #Construct an empty datafram to hold all the subset dataframes
 Detailed_dfs = pd.DataFrame(columns =["Country_name","Year", "latitude","longitude","confidence","acq_date", "acq_time"]) 
@@ -32,8 +34,7 @@ for Year in Yearlist:
             df_raw_0["Country_name"] = Country_name
             df_raw_0["Year"] = Year
             df_raw_1=df_raw_0[["Country_name","Year", "latitude","longitude","confidence","acq_date", "acq_time"]]
-            #Set confidence threshold
-            ConfidendenceThreshold= 90
+            #mask by confidence threshold
             df_raw_2= df_raw_1.loc[df_raw_1["confidence"] >= ConfidendenceThreshold]
             NumberOfFire= len(df_raw_2)
             print(NumberOfFire)
@@ -64,6 +65,7 @@ print(CountrySummary_dfs[-9:])
 #df.to_excel('output.xlsx', 'Sheet1')
 
 #Construct 2001-2019 summary dataset for each country
+
 #Clear the folder
 import glob
 files = glob.glob("C:\\859K_sl559\\Doc\\ModisFire\\*")
@@ -80,4 +82,12 @@ for Country_name in WantedFilelist:
     path= os.path.join(ModisFire_basepath,Country_excel) 
     CountrySummary_df.to_excel(path, sheetNumber)
     n=n+1
-    
+
+CountrySummary_China_df= CountrySummary_dfs.loc[CountrySummary_dfs["Country_name"]==Country_name]
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_axes([0,0,1,1])
+ax.bar(CountrySummary_China_df["Year"],CountrySummary_China_df["NumberOfFire"])
+ax.set_ylabel("Number of Fire")
+ax.set_title("China, "+ "fire confidendence threshold"+ str(ConfidendenceThreshold))
+plt.show()
