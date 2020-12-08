@@ -20,9 +20,13 @@ for year in yearlist:
         print(Country_name)
         if Country_name in WantedFilelist:
             print("This {} file dataset is selected".format(Country_name))
-            df_out = Country_name+"_"+year+"_df"
-            print(df_out)
+            #df_out = Country_name+"_"+year+"_df"
+            #print(df_out)
             df_out = pd.read_csv(file)
+            print(df_out[1:5])
+            #df_out_confident_fire= df_out["confidence"].#int.isin(80,81)
+            #df_out_confident_fire[1:5]
+            df_out['FileName'] = Country_name+"_"+year#+"_df"
             print(df_out[1:5])
         else:
             os.remove(file)
