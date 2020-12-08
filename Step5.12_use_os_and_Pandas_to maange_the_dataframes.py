@@ -26,6 +26,9 @@ for year in yearlist:
             df_raw_0['FileName'] = Country_name+"_"+year
             df_raw_1=df_raw_0[["FileName", "latitude","longitude","confidence","acq_date", "acq_time"]]
             print(df_raw_1[1:5])
+            #persDf = persDf.mask(persDf < 1000)
+            df_raw_2= df_raw_1.mask("confidence">10) 
+            print(df_raw_2[1:5])
         else:
             os.remove(file)
             
