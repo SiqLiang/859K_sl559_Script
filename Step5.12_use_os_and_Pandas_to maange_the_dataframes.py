@@ -31,8 +31,7 @@ for year in yearlist:
             print(df_raw_1.tail())
             #Append the masked subset dataframe to the ultimate huge dataframe
             dfs = dfs.append(df_raw_1, ignore_index=True, sort=False)
-            print(len(dfs))
-            
+            print(len(dfs))     
         else:
             os.remove(file)
             
