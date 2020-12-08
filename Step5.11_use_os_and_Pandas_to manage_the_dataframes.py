@@ -3,7 +3,13 @@
 import os
 import pandas as pd
 
-#print(os.getcwd())
+
+#Construct an empty datafram to hold all the subset dataframes
+Detailed_dfs = pd.DataFrame(columns =["Country_name","Year", "latitude","longitude","confidence","acq_date", "acq_time"]) 
+#Construct an empty datafram to hold all the summary rows
+CountrySummary_dfs=pd.DataFrame(columns =["Country_name","Year","NumberOfFire"]) 
+
+
 bathpath="C:\\859K_sl559\\Data\\ModisFire2001_2019"
 Yearlist=["2001","2002","2003","2004","2005","2006","2007","2008","2009","2010",
           "2011","2012","2013","2014","2015","2016","2017","2018","2019"]
@@ -16,11 +22,6 @@ for Year in Yearlist:
     #print(len(os.listdir(path)))
     WantedFilelist= ["Bangladesh", "Bhutan", "China", "India", "Lao_PDR", "Myanmar", "Nepal", "Thailand", "Vietnam"]
     filelist= os.listdir(path)
-    #construct an empty datafram to hold all the subset dataframes
-    detailed_dfs = pd.DataFrame(columns =["Country_name","Year", "latitude","longitude","confidence","acq_date", "acq_time"]) 
-    CountrySummary_dfs=pd.DataFrame(columns =["Country_name","Year","NumberOfFire"]) 
-    #print(dfs)
-    #print(len(dfs))
     for file in filelist:
         #print(file)
         Country_name = file[11:file.rfind('.')]
@@ -40,24 +41,23 @@ for Year in Yearlist:
             #print(df_raw_2.tail())
             
             #Append the subset detailed dataframe to the huge detailed dataframe
-            #detailed_dfs = detailed_dfs.append(df_raw_2, ignore_index=True, sort=False)
-            detailed_dfs = detailed_dfs.append(df_raw_2, ignore_index=True)
+            Detailed_dfs = Detailed_dfs.append(df_raw_2, ignore_index=True, sort=False)
             #print(len(dfs)) 
             
             #Construct and Append the summary row to the summary dataframe
             new_row = {"Country_name":Country_name, "Year":Year, "NumberOfFire":NumberOfFire}
-            CountrySummary_dfs = CountrySummary_dfs.append(new_row, ignore_index=True)
+            CountrySummary_dfs = CountrySummary_dfs.append(new_row,ignore_index=True, sort=False)
         else:
             os.remove(file)       
 
 #Check
-print(len(detailed_dfs))
-print(detailed_dfs[0:5])
-print(detailed_dfs[10000:10005])
+print(len(Detailed_dfs))
+print(Detailed_dfs[0:5])
+print(Detailed_dfs[10000:10005])
 
 
 print(len(CountrySummary_dfs))
-print(CountrySummary_dfs[0:5])
+print(CountrySummary_dfs[0:18])
 
 #df.to_excel('output.xlsx', 'Sheet1')
 
