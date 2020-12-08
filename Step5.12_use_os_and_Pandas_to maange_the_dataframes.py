@@ -22,12 +22,10 @@ for year in yearlist:
             print("This {} file dataset is selected".format(Country_name))
             #df_out = Country_name+"_"+year+"_df"
             #print(df_out)
-            df_out = pd.read_csv(file)
-            print(df_out[1:5])
-            #df_out_confident_fire= df_out["confidence"].#int.isin(80,81)
-            #df_out_confident_fire[1:5]
-            df_out['FileName'] = Country_name+"_"+year#+"_df"
-            print(df_out[1:5])
+            df_raw_0 = pd.read_csv(file)
+            df_raw_0['FileName'] = Country_name+"_"+year
+            df_raw_1=df_raw_0[["FileName", "latitude","longitude","confidence","acq_date", "acq_time"]]
+            print(df_raw_1[1:5])
         else:
             os.remove(file)
             
