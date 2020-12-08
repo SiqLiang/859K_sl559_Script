@@ -15,7 +15,9 @@ for year in yearlist:
     WantedFilelist= ["Bangladesh", "Bhutan", "China", "India", "Lao_PDR", "Myanmar", "Nepal", "Thailand", "Vietnam"]
     filelist= os.listdir(path)
     #construct an empty datafram to hold all the subset dataframes
-    dfs = df = pd.DataFrame() 
+    dfs = pd.DataFrame(columns = ["FileName", "latitude","longitude","confidence","acq_date", "acq_time"]) 
+    print(dfs)
+    print(len(dfs))
     for file in filelist:
         print(file)
         Country_name = file[11:file.rfind('.')]
@@ -35,11 +37,9 @@ for year in yearlist:
             ###print(df_raw_2[1:5])
             #Append the masked subset dataframe to the ultimate huge dataframe
             dfs.append(df_raw_1)
-            print(dfs.tail())
-            
+            print(dfs.tail())   
         else:
             os.remove(file)
             
 
-#df = pd.read_csv()
-#len(land_df)
+dfs[648:658]
