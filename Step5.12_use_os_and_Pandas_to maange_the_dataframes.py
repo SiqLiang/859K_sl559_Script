@@ -28,9 +28,12 @@ for year in yearlist:
             df_raw_0 = pd.read_csv(file)
             df_raw_0['FileName'] = Country_name+"_"+year
             df_raw_1=df_raw_0[["FileName", "latitude","longitude","confidence","acq_date", "acq_time"]]
+            #Set confidence threshold
+            df_raw_2= df_raw_1.loc[df_raw_1["confidence"] >= 80]
             #print(df_raw_1.tail())
+            #print(df_raw_2.tail())
             #Append the subset dataframe to a huge dataframe
-            dfs = dfs.append(df_raw_1, ignore_index=True, sort=False)
+            dfs = dfs.append(df_raw_2, ignore_index=True, sort=False)
             print(len(dfs))     
         else:
             os.remove(file)
