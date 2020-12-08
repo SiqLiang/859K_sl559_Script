@@ -13,11 +13,11 @@ Fire_fileObj.write('Country_name, '+'Year, '+ "NumberOfFire" +"\n")
 
 #print(os.getcwd())
 bathpath="C:\\859K_sl559\\Data\\ModisFire2001_2019"
-yearlist=["2001","2002","2003","2004","2005","2006","2007","2008","2009","2010",
+Yearlist=["2001","2002","2003","2004","2005","2006","2007","2008","2009","2010",
           "2011","2012","2013","2014","2015","2016","2017","2018","2019"]
-for year in yearlist:
-    print(year)
-    path= os.path.join(bathpath,year) 
+for Year in Yearlist:
+    print(Year)
+    path= os.path.join(bathpath,Year) 
     os.chdir(path)
     #print(os.getcwd())
     os.listdir(path)
@@ -38,19 +38,25 @@ for year in yearlist:
             #Construct each subset dataframe
             df_raw_0 = pd.read_csv(file)
             df_raw_0["Country_name"] = Country_name
-            df_raw_0["Year"] = year
+            df_raw_0["Year"] = Year
             df_raw_1=df_raw_0[["Country_name","Year", "latitude","longitude","confidence","acq_date", "acq_time"]]
             #Set confidence threshold
             df_raw_2= df_raw_1.loc[df_raw_1["confidence"] >= 80]
             NumberOfFire= len(df_raw_2)
             print(NumberOfFire)
             #write the relavent index into txt
-            Fire_fileObj.write(str(Country_name)+', '+str(year)+ ', '+str(NumberOfFire)+ "\n")
+            Fire_fileObj.write(str(Country_name)+', '+str(Year)+ ', '+str(NumberOfFire)+ "\n")
             #print(df_raw_1.tail())
             #print(df_raw_2.tail())
-            #Append the subset dataframe to a huge dataframe
-            detailed_dfs = detailed_dfs.append(df_raw_2, ignore_index=True, sort=False)
+            
+            #Append the subset detailed dataframe to the huge detailed dataframe
+            #detailed_dfs = detailed_dfs.append(df_raw_2, ignore_index=True, sort=False)
+            detailed_dfs = detailed_dfs.append(df_raw_2, ignore_index=True)
             #print(len(dfs)) 
+            
+            #Construct and Append the summary row to the summary dataframe
+            new_row = {"Country_name":Country_name, "Year":Year, "NumberOfFire":NumberOfFire}
+            CountrySummary_dfs = CountrySummary_dfs.append(new_row, ignore_index=True)
         else:
             os.remove(file)       
 Fire_fileObj.close()
@@ -58,7 +64,8 @@ Fire_fileObj.close()
 #Check
 print(detailed_dfs[0:2000])
 print(detailed_dfs[10000:10005])
-print(len(detailed_dfs)) 
+print(len(detailed_dfs))
+print(CountrySummary_dfs[0:5])
 
 #df.to_excel('output.xlsx', 'Sheet1')
 
