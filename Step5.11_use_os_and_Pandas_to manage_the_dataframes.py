@@ -2,7 +2,6 @@
 #Import the Pandas librar
 import os
 import pandas as pd
-overwrite == "y"
 
 #Construct an empty datafram to hold all the subset dataframes
 Detailed_dfs = pd.DataFrame(columns =["Country_name","Year", "latitude","longitude","confidence","acq_date", "acq_time"]) 
@@ -34,7 +33,8 @@ for Year in Yearlist:
             df_raw_0["Year"] = Year
             df_raw_1=df_raw_0[["Country_name","Year", "latitude","longitude","confidence","acq_date", "acq_time"]]
             #Set confidence threshold
-            df_raw_2= df_raw_1.loc[df_raw_1["confidence"] >= 90]
+            ConfidendenceThreshold= 90
+            df_raw_2= df_raw_1.loc[df_raw_1["confidence"] >= ConfidendenceThreshold]
             NumberOfFire= len(df_raw_2)
             print(NumberOfFire)
             #print(df_raw_1.tail())
@@ -64,13 +64,20 @@ print(CountrySummary_dfs[-9:])
 #df.to_excel('output.xlsx', 'Sheet1')
 
 #Construct 2001-2019 summary dataset for each country
-#df_raw_2= df_raw_1.loc[df_raw_1["confidence"] >= 90]
-os.remove("C:\859K_sl559\Doc\ModisFire\CountrySummary.xlsx") 
+#Clear the folder
+import glob
+files = glob.glob("C:\\859K_sl559\\Doc\\ModisFire\\*")
+for f in files:
+    os.remove(f)
+    
 n=1
 for Country_name in WantedFilelist:
-    CountrySummary_China_df= CountrySummary_dfs.loc[CountrySummary_dfs["Country_name"]==Country_name]
-    CountrySummary_China_df[0:18]
+    CountrySummary_df= CountrySummary_dfs.loc[CountrySummary_dfs["Country_name"]==Country_name]
+    CountrySummary_df[0:18]
     sheetNumber="Sheet"+str(n)
-    CountrySummary_China_df.to_excel('C:\\859K_sl559\\Doc\\ModisFire\\CountrySummary.xlsx', sheetNumber)
+    Country_excel=Country_name+str(ConfidendenceThreshold)+".xlsx"
+    ModisFire_basepath="C:\\859K_sl559\\Doc\\ModisFire"
+    path= os.path.join(ModisFire_basepath,Country_excel) 
+    CountrySummary_df.to_excel(path, sheetNumber)
     n=n+1
     
