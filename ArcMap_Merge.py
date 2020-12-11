@@ -18,15 +18,27 @@ arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
 #setting coordinate system
 arcpy.env.outputCoordinateSystem = arcpy.SpatialReference("WGS 1984")
 
-
 # Local variables:
 WDPA_polygon_roiClip_shp = "WDPA_polygon_roiClip.shp"
 China_NNR_roiClip_shp = "China_NNR_roiClip.shp"
 China_locallevelPA_roiClip_shp = "China_locallevelPA_roiClip.shp"
-WDPApolygon_ChinaPA_roiClip_Merge1_shp = "C:\\859K_sl559\\Data\\Dejure_PA\\WDPApolygon_ChinaPA_roiClip_Merge1.shp"
+addSourceInfo = "ADD_SOURCE_INFO"
+
+# Create FieldMappings object to manage merge output fields
+fieldMappings = arcpy.FieldMappings()
+# Add all fields from all source features
+fieldMappings.addTable(WDPA_polygon_roiClip_shp)
+fieldMappings.addTable(China_NNR_roiClip_shp)
+fieldMappings.addTable(China_locallevelPA_roiClip_shp)
+
+##########################################
+
+
+#output
+WDPApolygon_ChinaPA_roiClip_Merge1_shp = "WDPApolygon_ChinaPA_roiClip_Merge1.shp"
 
 # Process: Merge
 arcpy.Merge_management(["WDPA_polygon_roiClip.shp", "China_NNR_roiClip.shp", "China_locallevelPA_roiClip.shp"], 
-                       "C:/output/Output.gdb/allroads", "", "ADD_SOURCE_INFO")
+                       "WDPApolygon_ChinaPA_roiClip_Merge1.shp", "", "")
 
 #Much easier in arcmap, so conducted this step in arcmap
