@@ -27,3 +27,4 @@ reclassField = "Value"
 #100ha/cellsize=112.87  ; patch with 113cell is bigger than 100ha
 remap = "0 30 NODATA;30 100 1; NODATA NODATA"
 arcpy.gp.Reclassify_sa(SixForestCover2000_MosaictoNewRater_tif, reclassField, remap, SixFC2000_MtoNR_rC_FC30_tif)
+#run successfully, however the output cellsize is still 0.00025 instead of the mentioned 0.0008333
