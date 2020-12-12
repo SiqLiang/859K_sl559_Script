@@ -17,8 +17,8 @@ pixels = 2048
 dpi = 96
 clamped = 'CLAMPED_TO_GROUND'
 # Local variables:
-in_shp = "C:\\859K_sl559\\Scratch4\\DEMFC30_Acanthoptila_nipalensis.shp"
-out_kmz = "C:\\859K_sl559\\Scratch5\\DEMFC30_Acanthoptila_nipalensis.kmz"
+in_shp = "DEMFC30_Zoothera_salimalii.shp"
+out_kmz = "DEMFC30_Zoothera_salimalii.kmz"
 
 # Process: Layer To KML
 arcpy.LayerToKML_conversion(in_shp, out_kmz,"", composite, 
