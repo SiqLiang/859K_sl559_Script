@@ -3,6 +3,7 @@ import arcpy
 arcpy.env.overwriteOutput = True
 arcpy.env.workspace = "C:\\859K_sl559\\Scratch3"
 arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
+arcpy.env.outputCoordinateSystem ="EucDist_reC_RegionG2_TC2000_Proj.tif"
 
 # Local variables:
 EucDist_reC_RegionG2_TC2000_Proj_tif = "EucDist_reC_RegionG2_TC2000_Proj.tif"
