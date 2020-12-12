@@ -20,5 +20,5 @@ for fileName in fileList:
     print(outRas)
 
 
-#fileList = arcpy.ListRasters('DEMFC30_PA_*', 'All')
-#len(fileList) 
+layers = arcpy.ListFiles("*.shp") 
+len(layers) 
