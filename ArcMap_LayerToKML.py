@@ -21,7 +21,7 @@ in_shp = "DEMFC30_Zoothera_salimalii.shp"
 out_kmz = "DEMFC30_Zoothera_salimalii.kmz"
 
 # Process: Layer To KML
-arcpy.LayerToKML_conversion(in_shp, out_kmz,"", composite, 
+arcpy.LayerToKML_conversion(in_shp, out_kmz,"0", composite, 
                                         '', pixels, dpi, clamped)
 
 ###Not succvessful in spyder
