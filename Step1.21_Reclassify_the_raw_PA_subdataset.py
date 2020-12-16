@@ -11,7 +11,7 @@ arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
 #setting coordinate system
 arcpy.env.outputCoordinateSystem = arcpy.SpatialReference("WGS 1984")
 
-fileList = arcpy.ListRasters('raw_*', 'All')
+fileList = arcpy.ListRasters('raw_*')
 len(fileList) #Check how many Reclassified rasters are avaiable now
 for fileName in fileList:
     print(fileName)
@@ -22,5 +22,4 @@ for fileName in fileList:
     arcpy.gp.Reclassify_sa(fileName, reclassField, remap, outRas)
     print(outRas)
 
-
-
+#the outputs were transported to C:\859K_sl559\Data\Dejure_PA\Dejure_PA_RawTifClassified
