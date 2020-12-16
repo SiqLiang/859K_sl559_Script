@@ -8,7 +8,7 @@ arcpy.env.overwriteOutput = True
 arcpy.env.outputCoordinateSystem = arcpy.SpatialReference("WGS 1984")
 arcpy.env.workspace = "C:\\859K_sl559\\Scratch1"
 arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
-DeFacto_roi= "C:\859K_sl559\Data\Defacto_PA\DeFacto_EucDist_reC_RegionG2_TC2000_Proj.tif"
+DeFacto_roi= "C:\\859K_sl559\\Data\\Defacto_PA\\Reclassified_DeFacto_3000m.tif"
 
        
 sumRas = 0 # set init value and then loop through file list
