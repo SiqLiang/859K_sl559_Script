@@ -17,3 +17,4 @@ for fileName in fileList:
     outRas = Raster(fileName)*Raster(PA_roi)
     outRas.save("DEMFC30_PA_"+scientific_name+".tif")
     print(outRas)
+    
