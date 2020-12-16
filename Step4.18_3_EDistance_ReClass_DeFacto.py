@@ -12,4 +12,3 @@ DeFacto_EucDist_reC_RegionG2_TC2000_Proj_tif = "C:\\859K_sl559\\Scratch3\\DeFact
 # Process: Reclassify
 arcpy.gp.Reclassify_sa(EucDist_reC_RegionG2_TC2000_Proj_tif, "VALUE", "0 3000 NODATA;3000 13604 1", DeFacto_EucDist_reC_RegionG2_TC2000_Proj_tif, "DATA")
 
- 
