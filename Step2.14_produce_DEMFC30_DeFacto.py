@@ -10,8 +10,6 @@ arcpy.env.workspace = "C:\\859K_sl559\\Scratch1"
 arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
 DeFacto_roi= "C:\\859K_sl559\\Data\\Defacto_PA\\Reclassified_DeFacto_3000m.tif"
 
-       
-sumRas = 0 # set init value and then loop through file list
 fileList = arcpy.ListRasters('ReBy_DEMFC30_*', 'All')
 len(fileList) #Check how many Reclassified rasters are avaiable now
 for fileName in fileList:
