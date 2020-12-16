@@ -11,7 +11,7 @@ arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
 #setting coordinate system
 arcpy.env.outputCoordinateSystem = arcpy.SpatialReference("WGS 1984")
 
-
+cellSize = 0.00083333333
 sumRas = 0 # set init value and then loop through file list
 fileList = arcpy.ListRasters('*.tif')
 len(fileList) #Check how many Reclassified rasters are avaiable now
