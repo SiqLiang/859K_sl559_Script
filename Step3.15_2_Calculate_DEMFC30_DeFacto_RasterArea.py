@@ -1,3 +1,4 @@
+import arcpy
 import os
 from arcpy.sa import *
 arcpy.env.overwriteOutput = True
