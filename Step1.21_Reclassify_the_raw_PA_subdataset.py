@@ -16,6 +16,11 @@ len(fileList) #Check how many Reclassified rasters are avaiable now
 for fileName in fileList:
     print(fileName)
     subdataset_name = fileName[4:fileName.rfind('.')]
-    outRas = Raster(fileName)*Raster(PA_roi)
-    outRas.save("Classified_"+subdataset_name+".tif")
+    reclassField = "Value"
+    remap = "1 1; NODATA 0"
+    outRas= "Classified_"+subdataset_name+".tif"
+    arcpy.gp.Reclassify_sa(fileName, reclassField, remap, outRas)
     print(outRas)
+
+
+
