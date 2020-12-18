@@ -8,7 +8,7 @@ arcpy.env.overwriteOutput = True
 arcpy.env.outputCoordinateSystem = arcpy.SpatialReference("WGS 1984")
 arcpy.env.workspace = "C:\\859K_sl559\\Scratch1"
 arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
-DeFacto_roi= "C:\\859K_sl559\\Data\\Defacto_PA\\Reclassified_DeFacto_3000m.tif"
+DeFacto_roi= "C:\\859K_sl559\\Data\\SumUp_Dejure_Defacto\\Reclassified_PtR_DeFacto_3000m.tif"
 
 fileList = arcpy.ListRasters('ReBy_DEMFC30_*', 'All')
 len(fileList) #Check how many Reclassified rasters are avaiable now
@@ -18,4 +18,5 @@ for fileName in fileList:
     outRas = Raster(fileName)*Raster(DeFacto_roi)
     outRas.save("DEMFC30_DeFacto_"+scientific_name+".tif")
     print(outRas)
+    
     
