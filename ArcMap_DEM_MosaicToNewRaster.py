@@ -53,34 +53,10 @@ utm_srtm_58_08_img = "utm_srtm_58_08.img"
 utm_srtm_58_09_img = "utm_srtm_58_09.img"
 
 # Process: Mosaic To New Raster
-arcpy.MosaicToNewRaster_management("
-                                   utm_srtm_52_06_img;
-                                   utm_srtm_53_06_img;
-                                   utm_srtm_53_07_img;
-                                   utm_srtm_53_08_img;
-                                   utm_srtm_54_06_img;
-                                   utm_srtm_54_07_img;
-                                   utm_srtm_54_08_img;
-                                   utm_srtm_55_06_img;
-                                   utm_srtm_55_07_img;
-                                   utm_srtm_55_08_img;
-                                   utm_srtm_56_06_img;
-                                   utm_srtm_56_07_img;
-                                   utm_srtm_56_08_img;
-                                   utm_srtm_57_06_img;
-                                   utm_srtm_57_07_img;
-                                   utm_srtm_57_08_img;
-                                   utm_srtm_58_06_img;
-                                   utm_srtm_58_07_img;
-                                   utm_srtm_58_08_img;
-                                   utm_srtm_59_08_img;
-                                   ", 
+arcpy.MosaicToNewRaster_management("utm_srtm_52_06_img;utm_srtm_53_06_img;utm_srtm_53_07_img;utm_srtm_53_08_img;utm_srtm_54_06_img;utm_srtm_54_07_img;utm_srtm_54_08_img;utm_srtm_55_06_img;utm_srtm_55_07_img;utm_srtm_55_08_img;utm_srtm_56_06_img;utm_srtm_56_07_img;utm_srtm_56_08_img;utm_srtm_57_06_img;utm_srtm_57_07_img;utm_srtm_57_08_img;utm_srtm_58_06_img;utm_srtm_58_07_img;utm_srtm_58_08_img;utm_srtm_59_08_img", 
                                    DEM90m, 
                                    "DEM90_Mosaic_2021Jan4", 
-                                   "GEOGCS['GCS_WGS_1984',
-                                   DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],
-                                   PRIMEM['Greenwich',0.0],
-                                   UNIT['Degree',0.0174532925199433]]", 
+                                   "GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]]", 
                                    "16_BIT_SIGNED", 
                                    "8.33333333333333E-04", 
                                    "1", 
