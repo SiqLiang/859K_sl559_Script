@@ -41,7 +41,7 @@ for i in range (0,83,1):
     #Execute BL_Map Feature to Raster
     arcpy.AddMessage("Producing {} raw raster".format(row[1]))
     BLraw = "BLraw_"+scientific_name+".tif"
-    cellSize = 0.0008333
+    cellSize = 0.000833333333333333
     field = "83LandBird"
     arcpy.FeatureToRaster_conversion(poly_out, field, BLraw, cellSize)
     
