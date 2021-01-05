@@ -91,8 +91,8 @@ del rows
 #fileList = arcpy.ListRasters('ReBy_FC30_*', 'All')
 #len(fileList)
 
-#fileList = arcpy.ListRasters('ReBy_DEMFC30_*', 'All')
-#len(fileList)
+fileList = arcpy.ListRasters('ReBy_DEMFC30_*', 'All')
+len(fileList)
 
 
 
