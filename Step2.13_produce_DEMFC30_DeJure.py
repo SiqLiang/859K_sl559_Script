@@ -8,7 +8,7 @@ arcpy.env.overwriteOutput = True
 arcpy.env.outputCoordinateSystem = arcpy.SpatialReference("WGS 1984")
 arcpy.env.workspace = "C:\\859K_sl559\\Scratch1"
 arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
-DeJure_roi= "C:\\859K_sl559\\Data\Dejure_PA\\Classified_Dejure_PA_2020Dec16.tif"
+DeJure_roi= "C:\\859K_sl559\\Data\\SumUp_Dejure_Defacto\\Classified_Dejure_PA_2020Dec16.tif"
 
 fileList = arcpy.ListRasters('ReBy_DEMFC30_*', 'All')
 len(fileList) #Check how many Reclassified rasters are avaiable now
