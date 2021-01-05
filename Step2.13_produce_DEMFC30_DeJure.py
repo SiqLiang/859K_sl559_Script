@@ -1,5 +1,5 @@
 # This script aims at run raster claculator times to 
-#produce DEMFC30_PA_+scientific_name+".tif"
+#produce DEMFC30_DeJure_+scientific_name+".tif"
 
 #PA means De-jure in this script
 import arcpy
