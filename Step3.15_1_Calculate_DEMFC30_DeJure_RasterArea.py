@@ -1,4 +1,4 @@
-# DEMFC30_PA
+# DEMFC30_DeJure
 # This script takes a bunch of rasters in a folder and extracts the count values, 
 # multiplies it by the cell size, and outputs the area in a table (readable to Excel)
 
@@ -15,10 +15,10 @@ os.chdir("C:\\859K_sl559\\Doc")
 #Check the existence of the target txt file
 print (os.path.exists("C:\\859K_sl559\\Doc\\DEMFC30_DeJure_RasterArea.txt"))
 # Create a new file in the current working directory, write some text, and remember to close it
-BL_Map_fileObj = open("DEMFC30_DeJure_RasterArea.txt",'w')
-BL_Map_fileObj.truncate(0) # clear eveything already in the txt file
-BL_Map_fileObj.write('DEMFC30_DeJure_Species, '+'Area_sqkm2'+"\n")
-#BL_Map_fileObj.close()
+Map_fileObj = open("DEMFC30_DeJure_RasterArea.txt",'w')
+Map_fileObj.truncate(0) # clear eveything already in the txt file
+Map_fileObj.write('DEMFC30_DeJure_Species, '+'Area_sqkm2'+"\n")
+#Map_fileObj.close()
 
 # create constant and loop variables.
 # for projection World_Eckert_IV
@@ -40,12 +40,12 @@ for fileName in fileList:
         print(cellcount)
         area = cellcount*cellsize
         print(area)
-        BL_Map_fileObj.write(str(scientific_name)+', '+str(area)+"\n")
+        Map_fileObj.write(str(scientific_name)+', '+str(area)+"\n")
     except Exception:
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #a note to show there is no value=1
-        BL_Map_fileObj.write(str(scientific_name)+', '+"0"+"\n") 
+        Map_fileObj.write(str(scientific_name)+', '+"0"+"\n") 
                 
-BL_Map_fileObj.close()
+Map_fileObj.close()
 
 
 
