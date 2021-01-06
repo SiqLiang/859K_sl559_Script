@@ -60,14 +60,13 @@ print(len(Detailed_dfs))
 
 #Check CountrySummary_dfs
 print(len(CountrySummary_dfs))
-print(CountrySummary_dfs[0:8])
 print(CountrySummary_dfs[-9:])
 
-#Export CountrySummary_dfs toexcel; df.to_excel('output.xlsx', 'Sheet1')
-ModisFire_basepath = "C:\\859K_sl559\\Doc\\ModisFire"
-CountrySummary_excel= "CountrySummary_"+"ConfidenceThreshold_"+str(ConfidendenceThreshold)+".xlsx"
-path= os.path.join(ModisFire_basepath,CountrySummary_excel) 
-CountrySummary_dfs.to_excel(path, 'Raw') 
+##Export CountrySummary_dfs toexcel; df.to_excel('output.xlsx', 'Sheet1')
+#ModisFire_basepath = "C:\\859K_sl559\\Doc\\ModisFire"
+#CountrySummary_excel= "CountrySummary_"+"ConfidenceThreshold_"+str(ConfidendenceThreshold)+".xlsx"
+#path= os.path.join(ModisFire_basepath,CountrySummary_excel) 
+#CountrySummary_dfs.to_excel(path, 'Raw') 
 
 #Export Detailed_dfs toexcel; df.to_excel('output.xlsx', 'Sheet1')
 ModisFire_basepath = "C:\\859K_sl559\\Doc\\ModisFire"
