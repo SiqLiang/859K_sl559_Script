@@ -5,7 +5,7 @@
 import os
 import pandas as pd
 #Set confidence threshold
-ConfidendenceThreshold= 80
+ConfidendenceThreshold= 70
 
 #Construct an empty datafram to hold all the subset dataframes
 Detailed_dfs = pd.DataFrame(columns =["Country_name","Year", "latitude","longitude","confidence","acq_date", "acq_time"]) 
