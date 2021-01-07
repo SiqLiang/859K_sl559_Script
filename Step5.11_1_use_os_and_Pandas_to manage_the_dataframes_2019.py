@@ -5,7 +5,7 @@
 import os
 import pandas as pd
 #Set confidence threshold
-ConfidendenceThreshold= 30
+ConfidendenceThreshold= 50
 
 #Construct an empty datafram to hold all the subset dataframes
 Detailed_dfs = pd.DataFrame(columns =["Country_name","Year", "latitude","longitude","confidence","acq_date", "acq_time"]) 
@@ -57,6 +57,7 @@ for Year in Yearlist:
             Detailed_excel= "Detailed_"+ str(Year) +"_ConfidenceThreshold_"+str(ConfidendenceThreshold)+".xlsx"
             path= os.path.join(ModisFire_basepath,Detailed_excel) 
             Detailed_dfs.to_excel(path, 'Sheet1') 
+            print(CountrySummary_dfs[-9:])
             
         else:
             os.remove(file)       
