@@ -5,7 +5,7 @@
 import os
 import pandas as pd
 #Set confidence threshold
-ConfidendenceThreshold= 50
+ConfidendenceThreshold= 60
 
 #Construct an empty datafram to hold all the subset dataframes
 Detailed_dfs = pd.DataFrame(columns =["Country_name","Year", "latitude","longitude","confidence","acq_date", "acq_time"]) 
@@ -15,7 +15,7 @@ CountrySummary_dfs=pd.DataFrame(columns =["Country_name","Year","NumberOfFire"])
 
 
 bathpath="C:\\859K_sl559\\Data\\China_ModisFire2001_2019"
-Yearlist=["2001","2002","2003","2004","2005","2006","2007","2008","2009","2010",
+Yearlist=["2003","2004","2005","2006","2007","2008","2009","2010",
           "2011","2012","2013","2014","2015","2016","2017","2018","2019"]
 for Year in Yearlist:
     print(Year)
@@ -52,16 +52,17 @@ for Year in Yearlist:
             new_row = {"Country_name":Country_name, "Year":Year, "NumberOfFire":NumberOfFire}
             CountrySummary_dfs = CountrySummary_dfs.append(new_row,ignore_index=True, sort=False)
             
-            #datafram to excel
-            Detailed_dfs= Detailed_dfs.loc[Detailed_dfs["Year"] == Year]
-            ModisFire_basepath = "C:\\859K_sl559\\Doc\\ModisFire"
-            Detailed_excel= "China_Detailed_"+ str(Year) +"_ConfidenceThreshold_"+str(ConfidendenceThreshold)+".xlsx"
-            path= os.path.join(ModisFire_basepath,Detailed_excel) 
-            Detailed_dfs.to_excel(path, 'Sheet1') 
-            print(CountrySummary_dfs[-9:])
+            
             
         else:
-            os.remove(file)       
+            os.remove(file)    
+#datafram to excel
+#Detailed_dfs= Detailed_dfs.loc[Detailed_dfs["Year"] == Year]
+ModisFire_basepath = "C:\\859K_sl559\\Doc\\ModisFire"
+Detailed_excel= "China_Detailed_2003-2019"+"_ConfidenceThreshold_"+str(ConfidendenceThreshold)+".xlsx"
+path= os.path.join(ModisFire_basepath,Detailed_excel) 
+Detailed_dfs.to_excel(path, 'Sheet1') 
+print(CountrySummary_dfs)
 
 #Check Detailed_dfs
 #print(len(Detailed_dfs))
@@ -70,7 +71,7 @@ for Year in Yearlist:
 
 #Check CountrySummary_dfs
 #print(len(CountrySummary_dfs))
-print(CountrySummary_dfs[-9:])
+#print(CountrySummary_dfs[-9:])
 
 ##Export CountrySummary_dfs toexcel; df.to_excel('output.xlsx', 'Sheet1')
 #ModisFire_basepath = "C:\\859K_sl559\\Doc\\ModisFire"
