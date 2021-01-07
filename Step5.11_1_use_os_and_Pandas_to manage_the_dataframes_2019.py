@@ -9,11 +9,12 @@ ConfidendenceThreshold= 50
 
 #Construct an empty datafram to hold all the subset dataframes
 Detailed_dfs = pd.DataFrame(columns =["Country_name","Year", "latitude","longitude","confidence","acq_date", "acq_time"]) 
+
 #Construct an empty datafram to hold all the summary rows
 CountrySummary_dfs=pd.DataFrame(columns =["Country_name","Year","NumberOfFire"]) 
 
 
-bathpath="C:\\859K_sl559\\Data\\ModisFire2001_2019"
+bathpath="C:\\859K_sl559\\Data\\China_ModisFire2001_2019"
 Yearlist=["2001","2002","2003","2004","2005","2006","2007","2008","2009","2010",
           "2011","2012","2013","2014","2015","2016","2017","2018","2019"]
 for Year in Yearlist:
@@ -35,7 +36,7 @@ for Year in Yearlist:
             df_raw_0 = pd.read_csv(file)
             df_raw_0["Country_name"] = Country_name
             df_raw_0["Year"] = Year
-            df_raw_1=df_raw_0[["Country_name","Year", "Y","X","confidence","acq_date", "acq_time"]]
+            df_raw_1=df_raw_0[["Country_name","Year", "latitude","longitude","confidence","acq_date", "acq_time"]]
             #mask by confidence threshold
             df_raw_2= df_raw_1.loc[df_raw_1["confidence"] >= ConfidendenceThreshold]
             NumberOfFire= len(df_raw_2)
@@ -54,7 +55,7 @@ for Year in Yearlist:
             #datafram to excel
             Detailed_dfs= Detailed_dfs.loc[Detailed_dfs["Year"] == Year]
             ModisFire_basepath = "C:\\859K_sl559\\Doc\\ModisFire"
-            Detailed_excel= "Detailed_"+ str(Year) +"_ConfidenceThreshold_"+str(ConfidendenceThreshold)+".xlsx"
+            Detailed_excel= "China_Detailed_"+ str(Year) +"_ConfidenceThreshold_"+str(ConfidendenceThreshold)+".xlsx"
             path= os.path.join(ModisFire_basepath,Detailed_excel) 
             Detailed_dfs.to_excel(path, 'Sheet1') 
             print(CountrySummary_dfs[-9:])
