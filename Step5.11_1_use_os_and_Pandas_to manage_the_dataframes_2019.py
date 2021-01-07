@@ -23,7 +23,7 @@ for Year in Yearlist:
     #print(os.getcwd())
     os.listdir(path)
     #print(len(os.listdir(path)))
-    WantedFilelist= ["Bangladesh", "Bhutan", "China", "India", "Lao_PDR", "Myanmar", "Nepal", "Thailand", "Vietnam"]
+    WantedFilelist= ["China"]
     filelist= os.listdir(path)
     for file in filelist:
         #print(file)
@@ -35,7 +35,7 @@ for Year in Yearlist:
             df_raw_0 = pd.read_csv(file)
             df_raw_0["Country_name"] = Country_name
             df_raw_0["Year"] = Year
-            df_raw_1=df_raw_0[["Country_name","Year", "latitude","longitude","confidence","acq_date", "acq_time"]]
+            df_raw_1=df_raw_0[["Country_name","Year", "Y","X","confidence","acq_date", "acq_time"]]
             #mask by confidence threshold
             df_raw_2= df_raw_1.loc[df_raw_1["confidence"] >= ConfidendenceThreshold]
             NumberOfFire= len(df_raw_2)
