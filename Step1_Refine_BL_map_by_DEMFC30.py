@@ -5,7 +5,7 @@ from arcpy.sa import *
 arcpy.env.overwriteOutput = True
 
 # Set the analysis environments
-arcpy.env.workspace = "C:\\859K_sl559\\Scratch1"
+arcpy.env.workspace = "C:\\859K_sl559\\Scratch6"
 arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
 
 #input datasets
