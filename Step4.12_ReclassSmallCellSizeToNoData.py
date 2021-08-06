@@ -6,11 +6,11 @@ from arcpy.sa import *
 arcpy.env.overwriteOutput = True
 
 # Set the analysis environments
-arcpy.env.workspace = "C:\\859K_sl559\\Scratch3"
-arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
+arcpy.env.workspace = "C:\\859K_sl559\\Data\\ForestCover2000"
+arcpy.env.extent = "C:\\859K_sl559\\Data\\ROI\\RegionOfInterest_expanded.shp"
 
-RegionG_rCNoDataTC2000_test2_tif = "C:\\859K_sl559\\Scratch3\\RegionG_rCNoDataTC2000_test2.tif"
-Reclass_RegionG_rCNTC2000_tif = "C:\\859K_sl559\\Scratch3\\Reclass_RegionG_rCNTC2000.tif"
+RegionG_FC2000_MtoNR_rC_FC30_tif= "C:\\859K_sl559\\Data\\ForestCover2000\\RegionG_FC2000_MtoNR_rC_FC30_ROIexpanded.tif"
+Reclass_RegionG_FC2000_tif = "C:\\859K_sl559\\Data\\ForestCover2000\\Reclass_RegionG_FC2000_ROIexpanded.tif"
 
 #Execute Reclassify 
 reclassField = "Count"
@@ -18,4 +18,4 @@ reclassField = "Count"
 #cellsize= 94.126759784775m*94.126759784775m/1000000 = 0.88598469075807 ha
 #100ha/cellsize=112.87  ; patch with 113cell is bigger than 100ha
 remap = "1 112 NODATA; NODATA NODATA"
-arcpy.gp.Reclassify_sa(RegionG_rCNoDataTC2000_test2_tif, reclassField, remap, Reclass_RegionG_rCNTC2000_tif)
+arcpy.gp.Reclassify_sa(RegionG_FC2000_MtoNR_rC_FC30_tif, reclassField, remap, Reclass_RegionG_FC2000_tif)
