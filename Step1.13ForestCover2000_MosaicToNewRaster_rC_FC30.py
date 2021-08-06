@@ -25,6 +25,6 @@ reclassField = "Value"
 #for projection World_Eckert_IV
 #cellsize= 94.126759784775m*94.126759784775m/1000000 = 0.88598469075807 ha
 #100ha/cellsize=112.87  ; patch with 113cell is bigger than 100ha
-remap = "0 30 NODATA;30 100 1; NODATA NODATA"
+remap = "0 30 NODATA;30 100 1; NODATA NODATA" # (0, 30]
 arcpy.gp.Reclassify_sa(ForestCover2000_MosaictoNewRater_tif, reclassField, remap, FC2000_MtoNR_rC_FC30_tif)
 #run successfully, however the output cellsize is still 0.00025 instead of the mentioned 0.0008333
