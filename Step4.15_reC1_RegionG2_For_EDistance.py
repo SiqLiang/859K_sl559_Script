@@ -1,3 +1,7 @@
+#step4.15,4.16Compute Euclidean distance using non-habitat cells as the source. (Note: you'll first have to invert
+#your habitat or patch raster so that habitat cells are given a value of NoData).
+
+#?why I have step 4.16? it seems duplicated 
 import arcpy
 from arcpy.sa import *
 
