@@ -1,5 +1,6 @@
 #Before I calculate E_Distance, I need to convert the forest patches into NoData and 
 #convert the current NoData to 1
+#?why I have step 4.16? it seems duplicated with 4.15
 
 import arcpy
 from arcpy.sa import *
