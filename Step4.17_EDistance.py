@@ -11,10 +11,7 @@ arcpy.env.overwriteOutput = True
 arcpy.env.workspace = "C:\\859K_sl559\\Scratch3"
 arcpy.env.extent = "C:\\859K_sl559\\Data\\RegionOfInterest.shp"
 # Local variables:
-reC1_RegionG2_TC2000_Proj_tif = "reC1_RegionG2_TC2000_Proj.tif"
-EucDist_reC_RegionG2_TC2000_Proj_tif = "C:\\859K_sl559\\Scratch3\\EucDist_reC_RegionG2_TC2000_Proj.tif"
-Output_direction_raster = ""
+ReC2_RegionG2_TC2000_Proj_tif= "C:\\859K_sl559\\Scratch_DistanceToEdge\\ReC2_Proj_RegionG2_ReC1_RegionG1_FC2000_ROIexpanded_300m.tif"
+EucDist_reC_RegionG2_TC2000_Proj_tif = "C:\\859K_sl559\\Scratch_DistanceToEdge\\EucDist_ReC2_Proj_RegionG2_ReC1_RegionG1_FC2000_ROIexpanded_300m.tif"
 
-# Process: Euclidean Distance
-arcpy.gp.EucDistance_sa(reC1_RegionG2_TC2000_Proj_tif, EucDist_reC_RegionG2_TC2000_Proj_tif, "", "94.1231502405956", Output_direction_raster)
-
+#I conducted this step in Arcmap pro
