@@ -38,6 +38,6 @@ arcpy.gp.Reclassify_sa(RegionG2_tif, reclassField, remap, ReC2_RegionG2_tif)
 #---------
 
 #--------
-#I conducted raster projection in arcmap pro with World Eckert Iv
+#I conducted raster projection in arcmap pro with World Eckert Iv (NearstNeighbor)
 # I also conducted EDistance in arcmap pro; distance method:Planar
 #-------
