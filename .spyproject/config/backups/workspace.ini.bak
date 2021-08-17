@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['Step4.15_RToP_RegionG2TC2000_Projected.py']
+recent_files = ['Step1.12ForestCover2000_MosaicToNewRaster.py', 'Step1.13ForestCover2000_MosaicToNewRaster_rC_FC30.py', 'Step4.11_RegionGroup_ReClassNoData_H_TC2000.py', 'Step4.12_ReclassSmallCellSizeToNoData.py', 'Step4.13_RefionG2_rCRGrCndTC2000.py', 'Step4.14_RefionG2_rCRGrCndTC2000_Proj.py', 'Step4.15_reC1_RegionG2_For_EDistance.py', 'Step4.16_reC2_RegionG2_For_EDistancePresent.py', 'Step4.17_EDistance.py', 'Step4.18_1_EDistance_ReClass.py']
 

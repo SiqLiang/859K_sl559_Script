@@ -2,7 +2,9 @@
 title: "TheHotspotProject"
 author: "Siqi"
 date: "12/6/2020"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setwd}
@@ -75,7 +77,7 @@ class(Cat_count)
 Patch_Area<- Cat_count$x
 Frequency <-Cat_count$freq
 
-barplot(y$freq, names.arg =y$x)
+barplot(Frequency, names.arg =Patch_Area)
 library("ggplot2")
 ggplot(data=Cat_count, aes(x=Patch_Area, y=Frequency)) +
   geom_bar(stat="identity", width=0.5)
@@ -89,7 +91,7 @@ ggplot(data=Cat_count, aes(x=Patch_Area, y=Frequency)) +
 
 
 ```{r}
-#plot(pressure)
+fire_df <- read.csv("CountrySummary_ConfidenceThreshold_90_2003-2019.csv")
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
